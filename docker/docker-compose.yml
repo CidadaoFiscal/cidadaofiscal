@@ -1,0 +1,42 @@
+version: '3'
+
+networks:
+  vsub6:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.6.0.0/16
+
+services:
+  db:
+    image: mariadb:10.1
+    ports:
+      - "38306:3306"
+    environment:
+        - MYSQL_ROOT_PASSWORD=roots3cr3t
+        - MYSQL_DATABASE=cidadaofiscal
+        - MYSQL_USER=cfuser
+        - MYSQL_PASSWORD=cfs3cr3t
+    volumes: 
+      - ./etc/mysql:/docker-entrypoint-initdb.d
+    networks:
+      vsub6:
+        ipv4_address: 10.6.0.5
+  www:
+    build: 
+      context: .
+      dockerfile: /etc/docker/dockerfile_php_7
+    volumes:
+      - ../rest-api:/var/www/html/cidadaofiscal/api
+      - ../app/dist:/var/www/html/cidadaofiscal
+      - ./etc/php:/usr/local/etc/php
+      - ./etc/apache2/apache2.conf:/etc/apache2/conf-enabled/apache2.conf
+      - ./etc/apache2/hosts.conf:/etc/apache2/sites-enabled/hosts.conf
+    ports:
+      - "38080:80"
+    links:
+      - db
+    networks:
+      vsub6:
+        ipv4_address: 10.6.0.6
+
