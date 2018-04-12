@@ -1,0 +1,37 @@
+
+<!-- Navigation -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Cidadão Fiscal</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/dashboard">Resumo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/categories">Despesas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/detail">Detalhes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/about">Junte-se a Nós</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Page Content -->
+  <router-outlet></router-outlet>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Desenvolvido voluntariamente com dados públicos. cidadaofiscal.org</p>
+  </div>
+  <!-- /.container -->
+</footer>
