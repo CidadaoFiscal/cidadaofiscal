@@ -23,7 +23,7 @@ if (strlen($type) > 0) {
 FROM
     cidadaofiscal.cf_alepe AS plain_data
 WHERE
-    plain_data.despesa_tipo = '" . $type . "' AND 
+    plain_data.despesa_tipo = " . $type . " AND 
     plain_data.despesa_cancelada = 0
 GROUP BY
     plain_data.fornecedor_nome
