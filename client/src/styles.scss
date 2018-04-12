@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@swimlane/ngx-datatable/release/index.css";
+@import "../node_modules/@swimlane/ngx-datatable/release/themes/bootstrap.css";
+@import "../node_modules/@swimlane/ngx-datatable/assets/icons.css";
+@import "styles/bootstrap.materia.min.css";
+
+.ngx-datatable.bootstrap .datatable-footer {
+  background: #fff;
+  color: #999;
+  margin-top: -1px; }
+
+body {
+    padding-top: 54px;
+  }
+  
+  @media (min-width: 992px) {
+    body {
+      padding-top: 58px;
+    }
+  }
