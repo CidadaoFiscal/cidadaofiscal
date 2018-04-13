@@ -2,23 +2,20 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Cidadão Fiscal</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" [routerLink]="['/']" (click)="navbarCollapsed = true">Cidadão Fiscal</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed" [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/dashboard">Resumo</a>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" href="#" routerLink="/dashboard" (click)="navbarCollapsed = true">Resumo</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/categories">Despesas</a>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" href="#" routerLink="/detail" (click)="navbarCollapsed = true">Detalhes</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/detail">Detalhes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/about">Junte-se a Nós</a>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" href="#" routerLink="/about" (click)="navbarCollapsed = true">Junte-se a Nós</a>
         </li>
       </ul>
     </div>
