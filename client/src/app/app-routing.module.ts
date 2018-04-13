@@ -9,7 +9,7 @@ import { AboutComponent } from './about/about.component';
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'details', component: DetailComponent },
+  { path: 'detail', component: DetailComponent },
   { path: 'about', component: AboutComponent }
 ];
 
