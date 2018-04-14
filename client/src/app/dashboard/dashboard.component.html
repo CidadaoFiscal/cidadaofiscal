@@ -41,6 +41,21 @@
         [footerHeight]="40"
         [limit]="5"
         [rowHeight]="'auto'">
+        <ngx-datatable-column prop="memberPoliticalName" name="Deputado(a)">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <span [ngbTooltip]="row.memberName" container="body">{{value}}</span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="monthAverageExpenses" name="Média Mensal">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value | currency:"R$"}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="monthSumExpenses" name="Total">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value | currency:"R$"}}
+            </ng-template>
+          </ngx-datatable-column>
         </ngx-datatable>
       </div>
     </div>

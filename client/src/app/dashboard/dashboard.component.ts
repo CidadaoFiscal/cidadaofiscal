@@ -1,3 +1,4 @@
+import { SummaryMemberService } from './../summary-member.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -11,21 +12,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  summaryMemberRows = [
-    { name: 'Austin', sumExpenses: '99.999,00', avgExpenses: '51.516,00' },
-    { name: 'Dany', sumExpenses: '99.999,00', avgExpenses: '16.879,00' },
-    { name: 'a', sumExpenses: '99.999,00', avgExpenses: '11.000,00' },
-    { name: 'b', sumExpenses: '99.999,00', avgExpenses: '11.000,00' },
-    { name: 'c', sumExpenses: '99.999,00', avgExpenses: '11.000,00' },
-    { name: 'd', sumExpenses: '99.999,00', avgExpenses: '11.000,00' },
-    { name: 'e', sumExpenses: '99.999,00', avgExpenses: '11.000,00' },
-    { name: 'f', sumExpenses: '99.999,00', avgExpenses: '11.000,00' },
-    { name: 'g', sumExpenses: '99.999,00', avgExpenses: '11.000,00' },
-    { name: 'q', sumExpenses: '99.999,00', avgExpenses: '11.000,00' },
-    { name: 'dq', sumExpenses: '99.999,00', avgExpenses: '11.000,00' },
-    { name: 'ds', sumExpenses: '99.999,00', avgExpenses: '11.000,00' },
-    { name: 'xs', sumExpenses: '99.999,00', avgExpenses: '11.000,00' }
-  ];
+  summaryMemberRows = [];
   summaryMemberCols = [
     { prop: 'name', name: 'Deputado' },
     { prop: 'sumExpenses', name: 'Acumulado' },
@@ -56,12 +43,20 @@ export class DashboardComponent implements OnInit {
     { prop: 'y17', name: '2017' },
     { prop: 'total', name: 'Total' }
   ];
-  constructor(config: NgbCarouselConfig, private _http: HttpClient) {
+  constructor(
+    config: NgbCarouselConfig,
+    private _http: HttpClient,
+    private summaryMemberService: SummaryMemberService) {
     // customize default values of carousels used by this component tree
     config.interval = 10000;
     config.wrap = false;
     config.keyboard = false; }
 
   ngOnInit() {
+    this.loadMemberSummary();
+  }
+
+  loadMemberSummary(): void {
+    this.summaryMemberService.getSummaryMember().subscribe(res => this.summaryMemberRows = res.data);
   }
 }

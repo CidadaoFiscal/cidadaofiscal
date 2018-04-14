@@ -1,3 +1,5 @@
+import { SummaryMemberService } from './summary-member.service';
+import { ConfigService } from './config.service';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -36,7 +38,11 @@ registerLocaleData(localePt);
     AboutComponent,
     ExpenseTypePipe
   ],
-  providers: [DetailService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [
+    ConfigService,
+    DetailService,
+    SummaryMemberService,
+    {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
