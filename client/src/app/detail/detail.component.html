@@ -70,6 +70,36 @@
         [footerHeight]="40"
         [limit]="25"
         [rowHeight]="'auto'">
+          <ngx-datatable-column prop="memberPoliticalName" name="Deputado(a)">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <span [ngbTooltip]="row.memberName" container="body">{{value}}</span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="memberParty" name="Partido">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="expenseType" name="Tipo">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value | expenseType}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="supplierName" name="Fornecedor">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+              <span [ngbTooltip]="row.supplierId" container="body">{{value}}</span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="expenseValue" name="Valor">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value | currency:"R$"}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="expenseDate" name="Data">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <span>{{value | date:'shortDate'}}</span>
+            </ng-template>
+          </ngx-datatable-column>
         </ngx-datatable>
       </div>
     </div>
