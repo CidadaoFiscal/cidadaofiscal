@@ -1,6 +1,6 @@
 import { DetailService } from './../detail.service';
 import { Component, OnInit } from '@angular/core';
-import { DetailParameters } from '../../detail-parameters';
+import { DetailParameters } from './../detail-parameters';
 
 
 @Component({
@@ -27,7 +27,6 @@ export class DetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getDetails();
   }
 
   getDetails(): void {

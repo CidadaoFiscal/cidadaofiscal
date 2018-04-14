@@ -1,4 +1,5 @@
-import { DetailResponse } from './../detail-response';
+import { ConfigService } from './config.service';
+import { DetailResponse } from './detail-response';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -6,8 +7,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class DetailService {
 
-  private detailUrl = 'http://localhost:38080/cidadaofiscal/api/alepe/detail.php';
-  constructor(private http: HttpClient) {
+  private detailUrl = '/api/alepe/detail.php';
+  constructor(private http: HttpClient, private configService: ConfigService) {
 
   }
 
@@ -23,7 +24,7 @@ export class DetailService {
     params = this.appendParameterIfExists(params, parameters, 'expenseValueTo');
     params = this.appendParameterIfExists(params, parameters, 'expenseDateFrom');
     params = this.appendParameterIfExists(params, parameters, 'expenseDateTo');
-    return this.http.get<DetailResponse>(this.detailUrl, {params : params});
+    return this.http.get<DetailResponse>(this.configService.getBaseUrl() + this.detailUrl, {params : params});
   }
 
   private appendParameterIfExists(params, parameters, parameterName) {
