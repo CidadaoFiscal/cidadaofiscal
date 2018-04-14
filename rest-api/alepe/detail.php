@@ -23,6 +23,8 @@ $conditionItems .= isset($_GET["expenseType"]) ? " AND despesa_tipo = " . $_GET[
 $conditionItems .= isset($_GET["expenseValueFrom"]) ? " AND despesa_valor >= " . $_GET["expenseValueFrom"] : "";
 $conditionItems .= isset($_GET["expenseValueTo"]) ? " AND despesa_valor <= " . $_GET["expenseValueTo"] : "";
 $conditionItems .= isset($_GET["expenseCanceled"]) ? " AND despesa_cancelada = " . $_GET["expenseCanceled"] : "";
+$conditionItems .= isset($_GET["expenseDateFrom"]) ? " AND despesa_data >= '" . $_GET["expenseDateFrom"] . "'" : "";
+$conditionItems .= isset($_GET["expenseDateTo"]) ? " AND despesa_data <= '" . $_GET["expenseDateTo"] . "'" : "";
 
 $orderByValue = isset($_GET["orderByValue"]) ? $_GET["orderByValue"] : "despesa_data";
 $orderByOrder = isset($_GET["orderByOrder"]) ? $_GET["orderByOrder"] : "ASC";
@@ -41,7 +43,8 @@ $offset=isset($_GET["offset"]) ? intval($_GET["offset"]) : 0;
     fornecedor_nome AS supplierName,
 	despesa_tipo AS expenseType,
 	despesa_valor AS expenseValue,
-	despesa_cancelada AS expenseCanceled
+	despesa_cancelada AS expenseCanceled,
+    despesa_data AS expenseDate
 FROM
     cidadaofiscal.cf_alepe";
 
@@ -76,7 +79,8 @@ if($num>0){
             "supplierName" => $supplierName,
             "expenseType" => $expenseType,
             "expenseValue" => $expenseValue,
-            "expenseCanceled" => $expenseCanceled
+            "expenseCanceled" => $expenseCanceled,
+            "expenseDate" => $expenseDate
         );
     
         array_push($res_arr["data"], $res_arr_item);
