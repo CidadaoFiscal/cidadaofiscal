@@ -26,22 +26,30 @@ $conditionItems .= isset($_GET["expenseValueTo"]) ? " AND despesa_valor <= " . $
 $conditionItems .= isset($_GET["expenseCanceled"]) ? " AND despesa_cancelada = " . $_GET["expenseCanceled"] : "";
 
 $query = "SELECT 
-        plain_data.despesa_tipo AS expenseType,
-        SUM(plain_data.despesa_valor) AS sumExpenses,
-        plain_data.ordem_ano AS poYear
-    FROM
-        cidadaofiscal.cf_alepe AS plain_data";
+    res_by_type.despesa_tipo AS expenseType,
+    sum(y2015) as y2015,
+    sum(y2016) as y2016,
+    sum(y2017) as y2017,
+    sum(despesa_valor) AS total
+    FROM (
+        SELECT 
+        despesa_tipo,
+        despesa_valor,
+        CASE(ordem_ano) WHEN (2015) THEN despesa_valor ELSE 0 END AS y2015,
+        CASE(ordem_ano) WHEN (2016) THEN despesa_valor ELSE 0 END AS y2016,
+        CASE(ordem_ano) WHEN (2017) THEN despesa_valor ELSE 0 END AS y2017
+        FROM
+        cidadaofiscal.cf_alepe";
 
 if (strlen($conditionItems)>0) {
     $query .= " WHERE " . substr($conditionItems, 5);
 }
 
-$query .= "
+$query .= ") AS res_by_type
     GROUP BY
-        expenseType,
-        poYear
+        expenseType
     ORDER BY 
-        poYear ASC";
+        total DESC";
 
 $stmt = $db->prepare($query);
 $stmt->execute();
@@ -58,8 +66,10 @@ if($num>0){
  
         $res_arr_item=array(
             "expenseType" => $expenseType,
-            "sumExpenses" => $sumExpenses,
-            "poYear" => $poYear
+            "y2015" => $y2015,
+            "y2016" => $y2016,
+            "y2017" => $y2017,
+            "total" => $total
         );
  
         array_push($res_arr["data"], $res_arr_item);

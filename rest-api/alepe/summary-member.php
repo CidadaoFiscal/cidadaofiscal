@@ -31,7 +31,7 @@ $query = "SELECT
         plain_data.parlamentar_nome AS memberName,
         plain_data.parlamentar_partido AS memberParty,
         month_avg.despesa_media_mes AS monthAverageExpenses,
-        SUM(despesa_valor) AS monthSumExpenses
+        SUM(plain_data.despesa_valor) AS monthSumExpenses
     FROM
         cidadaofiscal.cf_alepe AS plain_data
     JOIN (

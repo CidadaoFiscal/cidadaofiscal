@@ -19,6 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ExpenseTypePipe } from './expense-type.pipe';
+import { SummarySupplierService } from './summary-supplier.service';
+import { SummaryExpensesYearService } from './summary-expenses-year.service';
 
 registerLocaleData(localePt);
 
@@ -42,6 +44,8 @@ registerLocaleData(localePt);
     ConfigService,
     DetailService,
     SummaryMemberService,
+    SummarySupplierService,
+    SummaryExpensesYearService,
     {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
