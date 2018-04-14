@@ -1,6 +1,8 @@
+import { DetailService } from './detail.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -17,7 +19,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     AppRoutingModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    NgxDatatableModule
+    NgxDatatableModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
@@ -25,7 +28,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     DetailComponent,
     AboutComponent
   ],
-  providers: [],
+  providers: [DetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

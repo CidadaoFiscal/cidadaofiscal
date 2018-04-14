@@ -1,5 +1,4 @@
 <div class="container detail-container">
-  <form>
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">
@@ -8,23 +7,23 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label for="formGroupExampleInput">Deputado</label>
-              <input type="text" class="form-control" id="memberFantasy" placeholder="Nome Do Deputado">
+              <label for="memberPoliticalName">Deputado</label>
+              <input type="text" class="form-control" id="memberPoliticalName" placeholder="Nome Do Deputado" [(ngModel)]="detailParameters.memberPoliticalName">
             </div>
             <div class="form-group">
               <label for="formGroupExampleInput2">Partido</label>
-              <input type="text" class="form-control" id="memberParty" placeholder="Partido">
+              <input type="text" class="form-control" id="memberParty" placeholder="Partido"  [(ngModel)]="detailParameters.memberParty">
             </div>
           </div>
   
           <div class="col-md-4">
             <div class="form-group">
               <label for="supplierId">CPF/CNPJ do Fornecedor</label>
-              <input type="text" class="form-control" id="supplierId" placeholder="CPF ou CPNJ sem Separadores">
+              <input type="text" class="form-control" id="supplierId" placeholder="CPF ou CPNJ sem Separadores"  [(ngModel)]="detailParameters.supplierId">
             </div>
             <div class="form-group">
               <label for="supplierName">Nome do Fornecedor</label>
-              <input type="text" class="form-control" id="supplierName" placeholder="Nome do Fornecedor">
+              <input type="text" class="form-control" id="supplierName" placeholder="Nome do Fornecedor"  [(ngModel)]="detailParameters.supplierName">
             </div>
           </div>
   
@@ -32,28 +31,28 @@
             <div class="row">
               <div class="form-group col-lg-6 col-md-6">
                 <label for="expenseValueFrom">Valor De</label>
-                <input type="number" class="form-control" id="expenseValueFrom" placeholder="0">
+                <input type="number" class="form-control" id="expenseValueFrom" placeholder="0"  [(ngModel)]="detailParameters.expenseValueFrom">
               </div>
               <div class="form-group col-lg-6 col-md-6">
                 <label for="expenseValueTo">Valor Até</label>
-                <input type="number" class="form-control" id="expenseValueTo" placeholder="9999">
+                <input type="number" class="form-control" id="expenseValueTo" placeholder="9999" [(ngModel)]="detailParameters.expenseValueTo">
               </div>
             </div>
             <div class="row">
               <div class="form-group col-lg-6 col-md-6">
                 <label for="expenseDateFrom">Data De</label>
-                <input type="date" class="form-control" id="expenseValueFrom" placeholder="">
+                <input type="date" class="form-control" id="expenseValueFrom" placeholder="" [(ngModel)]="detailParameters.expenseDateFrom">
               </div>
               <div class="form-group col-lg-6 col-md-6">
                 <label for="expenseDateTo">Data Até</label>
-                <input type="date" class="form-control" id="expenseValueTo" placeholder="">
+                <input type="date" class="form-control" id="expenseValueTo" placeholder="" [(ngModel)]="detailParameters.expenseDateTo">
               </div>
             </div>
           </div>
         </div>
         <div class="card-body">
-            <a href="#" class="btn btn-secondary">Limpar</a>
-            <a href="#" class="btn btn-primary">Pesquisar</a>
+            <button class="btn btn-secondary" (click)="resetParameters()">Limpar</button>
+            <button class="btn btn-primary" (click)="getDetails()">Pesquisar</button>
         </div>
       </div>
     </div>
@@ -74,5 +73,4 @@
         </ngx-datatable>
       </div>
     </div>
-  </form>
 </div>

@@ -1,4 +1,7 @@
+import { DetailService } from './../detail.service';
 import { Component, OnInit } from '@angular/core';
+import { DetailParameters } from '../../detail-parameters';
+
 
 @Component({
   selector: 'app-detail',
@@ -6,41 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  detailRows = [
-    { memberPoliticalName: 'Austin Powers', memberParty: 'PODE',
-    supplierName: 'ACME TECNOLOGIAS S/A LIMITADA DO BRASIL BRASILEIRO',
-    expenseType: 'Hospedage, Material, Aluguel, Roupas' , expenseValue: '51.516,00',
-    expenseCanceled: 'Nao' , expenseDate: '01/06/2015' },
-    { memberPoliticalName: 'Austin Powers', memberParty: 'PODE',
-    supplierName: 'ACME TECNOLOGIAS S/A LIMITADA DO BRASIL BRASILEIRO',
-    expenseType: 'Hospedage, Material, Aluguel, Roupas' , expenseValue: '51.516,00',
-    expenseCanceled: 'Nao' , expenseDate: '01/06/2015' },
-    { memberPoliticalName: 'Austin Powers', memberParty: 'PODE',
-    supplierName: 'ACME TECNOLOGIAS S/A LIMITADA DO BRASIL BRASILEIRO',
-    expenseType: 'Hospedage, Material, Aluguel, Roupas' , expenseValue: '51.516,00',
-    expenseCanceled: 'Nao' , expenseDate: '01/06/2015' },
-    { memberPoliticalName: 'Austin Powers', memberParty: 'PODE',
-    supplierName: 'ACME TECNOLOGIAS S/A LIMITADA DO BRASIL BRASILEIRO',
-    expenseType: 'Hospedage, Material, Aluguel, Roupas' , expenseValue: '51.516,00',
-    expenseCanceled: 'Nao' , expenseDate: '01/06/2015' },
-    { memberPoliticalName: 'Austin Powers', memberParty: 'PODE',
-    supplierName: 'ACME TECNOLOGIAS S/A LIMITADA DO BRASIL BRASILEIRO',
-    expenseType: 'Hospedage, Material, Aluguel, Roupas' , expenseValue: '51.516,00',
-    expenseCanceled: 'Nao' , expenseDate: '01/06/2015' },
-    { memberPoliticalName: 'Austin Powers', memberParty: 'PODE',
-    supplierName: 'ACME TECNOLOGIAS S/A LIMITADA DO BRASIL BRASILEIRO',
-    expenseType: 'Hospedage, Material, Aluguel, Roupas' , expenseValue: '51.516,00',
-    expenseCanceled: 'Nao' , expenseDate: '01/06/2015' },
-    { memberPoliticalName: 'Austin Powers', memberParty: 'PODE',
-    supplierName: 'ACME TECNOLOGIAS S/A LIMITADA DO BRASIL BRASILEIRO',
-    expenseType: 'Hospedage, Material, Aluguel, Roupas' , expenseValue: '51.516,00',
-    expenseCanceled: 'Nao' , expenseDate: '01/06/2015' },
-    { memberPoliticalName: 'Austin Powers', memberParty: 'PODE',
-    supplierName: 'ACME TECNOLOGIAS S/A LIMITADA DO BRASIL BRASILEIRO',
-    expenseType: 'Hospedage, Material, Aluguel, Roupas' , expenseValue: '51.516,00',
-    expenseCanceled: 'Nao' , expenseDate: '01/06/2015' }
-    
-  ];
+  detailRows = [];
   detailCols = [
     { prop: 'memberPoliticalName', name: 'Deputado' },
     { prop: 'memberParty', name: 'Partido' },
@@ -50,9 +19,24 @@ export class DetailComponent implements OnInit {
     { prop: 'expenseCanceled', name: 'Nota Cancelada'},
     { prop: 'expenseDate', name: 'Data'}
   ];
-  constructor() { }
 
-  ngOnInit() {
+  detailParameters = new DetailParameters();
+
+  constructor(private detailService: DetailService) {
+    this.detailParameters.limit = 9999;
   }
 
+  ngOnInit() {
+    this.getDetails();
+  }
+
+  getDetails(): void {
+    this.detailService.getDetails(this.detailParameters)
+    .subscribe(detailResponse => this.detailRows = detailResponse.data);
+  }
+
+  resetParameters() {
+    this.detailParameters = new DetailParameters();
+    this.detailParameters.limit = 9999;
+  }
 }
