@@ -28,7 +28,7 @@ export class DetailService {
 
   private appendParameterIfExists(params, parameters, parameterName) {
     return this.isUndefinedOrEmpty(parameters[parameterName]) ?
-      params : params.append(parameterName, parameters[parameterName]);
+      params : params.append(parameterName, ('' + parameters[parameterName]).trim());
   }
 
   private isUndefinedOrEmpty(object) {
