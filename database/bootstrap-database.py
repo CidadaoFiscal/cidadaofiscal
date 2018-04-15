@@ -17,7 +17,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS cf_alepe (
                 ordem_ano INT(4) UNSIGNED,
                 ordem_mes INT(2) UNSIGNED,
                 despesa_tipo VARCHAR(255),
-                despesa_data DATE   ,
+                despesa_data DATE,
                 despesa_valor DECIMAL(13,4),
                 despesa_cancelada TINYINT(1),
                 fornecedor_id VARCHAR(255),
