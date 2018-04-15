@@ -2,24 +2,24 @@
 
 <ngb-carousel>
   <ng-template ngbSlide>
-    <div class="carousel-image" style="background-image: url('http://placehold.it/1900x1080')"></div>
+    <div class="carousel-image" style="background-image: url('./assets/cf1.jpg'); height:200px;"></div>
     <div class="carousel-caption">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3>Alisando os gastos públicos</h3>
+      <p>Em seu primeiro projeto, o cidadaofiscal.org mostra a finalidade das verbas indenizatórias da Assembléia Legislativa de Pernambuco.</p>
     </div>
   </ng-template>
   <ng-template ngbSlide>
-    <div class="carousel-image" style="background-image: url('http://placehold.it/1900x1080')"></div>
+    <div class="carousel-image" style="background-image: url('./assets/cf2.jpg'); height:200px;"></div>
     <div class="carousel-caption">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3>ALEPE</h3>
+      <p>Todos os dados utilizados neste projeto estão disponíveis publicamente para consulta.</p>
     </div>
   </ng-template>
   <ng-template ngbSlide>
-    <div class="carousel-image" style="background-image: url('http://placehold.it/1900x1080')"></div>
+    <div class="carousel-image" style="background-image: url('./assets/cf3.jpg');  height:200px;"></div>
     <div class="carousel-caption">
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3>É Possível</h3>
+      <p>Este é um projeto voluntário feito por pessoas que acreditam que <strong>É POSSÍVEL</strong> mudar o país com uma participação saudável na política.</p>
     </div>
   </ng-template>
 </ngb-carousel>  
@@ -35,22 +35,23 @@
         </h4>
         <ngx-datatable class="bootstrap"
         [rows]="summaryMemberRows"
-        [columnMode]="'force'"
+        [columnMode]="'flex'"
         [headerHeight]="40"
         [footerHeight]="40"
         [limit]="5"
-        [rowHeight]="'46'">
-          <ngx-datatable-column prop="memberPoliticalName" name="Deputado(a)">
+        [rowHeight]="'46'"
+        [messages]="{emptyMessage:'Sem dados para exibir',totalMessage:'(total)'}">
+          <ngx-datatable-column prop="memberPoliticalName" name="Deputado(a)" [flexGrow]="3">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
                 <span [ngbTooltip]="row.memberName" container="body">{{value}}</span>
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column prop="monthAverageExpenses" name="Média Mensal">
+          <ngx-datatable-column prop="monthAverageExpenses" name="Média Mensal" [flexGrow]="2">
             <ng-template let-value="value" ngx-datatable-cell-template>
                 {{value | currency:"R$"}}
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column prop="monthSumExpenses" name="Total">
+          <ngx-datatable-column prop="monthSumExpenses" name="Total" [flexGrow]="2">
             <ng-template let-value="value" ngx-datatable-cell-template>
                 {{value | currency:"R$"}}
             </ng-template>
@@ -67,22 +68,23 @@
         </h4>
         <ngx-datatable class="bootstrap"
           [rows]="summarySupplierRows"
-          [columnMode]="'force'"
+          [columnMode]="'flex'"
           [headerHeight]="40"
           [footerHeight]="40"
           [limit]="5"
-          [rowHeight]="'46'">
-          <ngx-datatable-column prop="supplierName" name="Fornecedor">
+          [rowHeight]="'46'"
+          [messages]="{emptyMessage:'Sem dados para exibir',totalMessage:'(total)'}">
+          <ngx-datatable-column prop="supplierName" name="Fornecedor" [flexGrow]="2">
               <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
                   <span [ngbTooltip]="row.supplierId" container="body">{{value}}</span>
               </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column prop="sumExpenses" name="Total Recebido">
+            <ngx-datatable-column prop="sumExpenses" name="Total Recebido" [flexGrow]="1">
               <ng-template let-value="value" ngx-datatable-cell-template>
                   {{value | currency:"R$"}}
               </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column prop="memberCount" name="Qtd. Deputados">
+            <ngx-datatable-column prop="memberCount" name="Qtd. Deputados" [flexGrow]="1">
               <ng-template let-value="value" ngx-datatable-cell-template>
                   {{value}}
               </ng-template>
@@ -97,18 +99,16 @@
 <!-- Features Section -->
 <div class="row">
   <div class="col-lg-4 col-md-12">
-    <h2>Entenda as informações</h2>
-    <p>The Modern Business template by Start Bootstrap includes:</p>
+    <h2>Entenda o Projeto</h2>
+    <p>O CidadãoFiscal apresenta informações públicas em forma organizada para facilitar o entendimento por parte de todos os cidadãos.</p>
     <ul>
       <li>
-        <strong>Bootstrap v4</strong>
+        <strong>Projeto voluntário</strong>
       </li>
-      <li>jQuery</li>
-      <li>Font Awesome</li>
-      <li>Working contact form with validation</li>
-      <li>Unstyled page elements for easy customization</li>
+      <li>Sem vínculo partidário</li>
+      <li>Aberto a sugestões e novos colaboradores</li>
     </ul>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+    <p>Os dados de vérbas indenizatórias da ALEPE (Assembléia Legislativa de Pernambuco) foram escolhidos para o primeiro trabalho do Cidadão Fiscal pro permitirem uma análise direta da população sobre como seus eleitos mais próximos estão utilizando o dinheiro público.</p>
   </div>
   <div class="col-lg-8 col-md-12">
       <div class="card h-100">
@@ -118,32 +118,33 @@
           </h4>
           <ngx-datatable class="bootstrap"
             [rows]="summaryExpesesYearRows"
-            [columnMode]="'force'"
+            [columnMode]="'flex'"
             [headerHeight]="40"
             [footerHeight]="40"
             [limit]="3"
-            [rowHeight]="'46'">
-              <ngx-datatable-column prop="expenseType" name="Tipo de Despesa">
+            [rowHeight]="'46'"
+            [messages]="{emptyMessage:'Sem dados para exibir',totalMessage:'(total)'}">
+              <ngx-datatable-column prop="expenseType" name="Tipo de Despesa" [flexGrow]="3">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     <span [ngbTooltip]="value | expenseType" container="body">{{value | expenseType}}</span>
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column prop="y2015" name="2015">
+              <ngx-datatable-column prop="y2015" name="2015" [flexGrow]="2">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value | currency:"R$"}}
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column prop="y2016" name="2016">
+              <ngx-datatable-column prop="y2016" name="2016" [flexGrow]="2">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value | currency:"R$"}}
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column prop="y2017" name="2017">
+              <ngx-datatable-column prop="y2017" name="2017" [flexGrow]="2">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value | currency:"R$"}}
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column prop="total" name="Total">
+              <ngx-datatable-column prop="total" name="Total" [flexGrow]="2">
                 <ng-template let-value="value"  ngx-datatable-cell-template>
                     {{value | currency:"R$"}}
                 </ng-template>
