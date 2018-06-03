@@ -1,27 +1,51 @@
 
 
 <ngb-carousel>
+<div class="col-md-12">
   <ng-template ngbSlide>
-    <div class="carousel-image" style="background-image: url('./assets/cf1.jpg'); height:200px;"></div>
+    <div class="carousel-image" style="background-image: url('./assets/img/bg-slide.png');"></div>
     <div class="carousel-caption">
-      <h3>Alisando os gastos públicos</h3>
-      <p>Em seu primeiro projeto, o cidadaofiscal.org mostra a finalidade das verbas indenizatórias da Assembléia Legislativa de Pernambuco.</p>
+	<div class="row -two-col-xs">
+		<div class="col col-img">
+			<img src="./assets/img/slide1.png" />
+		</div>
+		<div class="col">
+			<h3>Alisando os <span>gastos públicos</span></h3>
+			<p>Em seu primeiro projeto, o cidadaofiscal.org mostra a finalidade das verbas indenizatórias da Assembléia Legislativa de Pernambuco.</p>
+		</div>
+	</div>
+	</div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="carousel-image" style="background-image: url('./assets/img/bg-slide.png');"></div>
+    <div class="carousel-caption">
+	<div class="row -two-col-xs">
+		<div class="col col-img">
+			<img src="./assets/img/slide2.png" />
+		</div>
+		<div class="col">
+		      <h3>ALEPE</h3>
+			  <p>Todos os dados utilizados neste projeto estão disponíveis publicamente para consulta.</p>
+		</div>
+	</div>
     </div>
   </ng-template>
   <ng-template ngbSlide>
-    <div class="carousel-image" style="background-image: url('./assets/cf2.jpg'); height:200px;"></div>
+    <div class="carousel-image" style="background-image: url('./assets/img/bg-slide.png');"></div>
     <div class="carousel-caption">
-      <h3>ALEPE</h3>
-      <p>Todos os dados utilizados neste projeto estão disponíveis publicamente para consulta.</p>
+	<div class="row -two-col-xs">
+		<div class="col col-img">
+			<img src="./assets/img/slide3.png" />
+		</div>
+		<div class="col">
+			<h3>É Possível</h3>
+			<p>Este é um projeto voluntário feito por pessoas que acreditam que <strong>É POSSÍVEL</strong> mudar o país com uma participação saudável na política.</p>
+		</div>
+	</div>
+      
     </div>
   </ng-template>
-  <ng-template ngbSlide>
-    <div class="carousel-image" style="background-image: url('./assets/cf3.jpg');  height:200px;"></div>
-    <div class="carousel-caption">
-      <h3>É Possível</h3>
-      <p>Este é um projeto voluntário feito por pessoas que acreditam que <strong>É POSSÍVEL</strong> mudar o país com uma participação saudável na política.</p>
-    </div>
-  </ng-template>
+</div>
 </ngb-carousel>  
 
 <div class="container">
@@ -31,7 +55,11 @@
     <div class="card h-100">
       <div class="card-body">
         <h4 class="card-title">
-          Deputados
+		  <img src="./assets/img/icon1.png" />
+		  <div>
+			  Deputados
+			  <span>Quais são os deputados que mais gastam?</span>
+		  </div>
         </h4>
         <ngx-datatable class="bootstrap"
         [rows]="summaryMemberRows"
@@ -64,7 +92,11 @@
     <div class="card h-100">
       <div class="card-body">
         <h4 class="card-title">
-          Fornecedores (Top 100)
+		  <img src="./assets/img/icon2.png" />
+		  <div>
+			  Fornecedores
+			   <span>Quais são as empresas que mais recebem?</span>
+		   </div>
         </h4>
         <ngx-datatable class="bootstrap"
           [rows]="summarySupplierRows"
@@ -98,23 +130,15 @@
 
 <!-- Features Section -->
 <div class="row">
-  <div class="col-lg-4 col-md-12">
-    <h2>Entenda o Projeto</h2>
-    <p>O CidadãoFiscal apresenta informações públicas em forma organizada para facilitar o entendimento por parte de todos os cidadãos.</p>
-    <ul>
-      <li>
-        <strong>Projeto voluntário</strong>
-      </li>
-      <li>Sem vínculo partidário</li>
-      <li>Aberto a sugestões e novos colaboradores</li>
-    </ul>
-    <p>Os dados de vérbas indenizatórias da ALEPE (Assembléia Legislativa de Pernambuco) foram escolhidos para o primeiro trabalho do Cidadão Fiscal pro permitirem uma análise direta da população sobre como seus eleitos mais próximos estão utilizando o dinheiro público.</p>
-  </div>
-  <div class="col-lg-8 col-md-12">
+  <div class="col-lg-12 col-md-12">
       <div class="card h-100">
         <div class="card-body">
           <h4 class="card-title">
-            Despesas por Ano
+		    <img src="./assets/img/icon3.png" />
+			<div>
+				Despesas por Ano
+				<span>Como o seu dinheiro é gasto?</span>
+			</div>
           </h4>
           <ngx-datatable class="bootstrap"
             [rows]="summaryExpesesYearRows"
@@ -153,19 +177,28 @@
         </div>
       </div>
     </div>
+  <div class="col-lg-12 col-md-12">
+  <div class="row -two-col-xs container-sobre">
+	<div class="col-lg-6 col-md-6 text-center">
+		<img src="./assets/img/logo-g.png" />
+		<a class="btn btn-lg btn-secondary btn-block" href="#" routerLink="/about">Seja um Volutário</a>
+	</div>
+	<div class="col-lg-6 col-md-6">
+    <h2>Entenda o <span>Projeto</span></h2>
+    <p>O CidadãoFiscal apresenta informações públicas em forma organizada para facilitar o entendimento por parte de todos os cidadãos.</p>
+    <ul>
+      <li>
+        Projeto voluntário
+      </li>
+      <li>Sem vínculo partidário</li>
+      <li>Aberto a sugestões e novos colaboradores</li>
+    </ul>
+    <p>Os dados de vérbas indenizatórias da ALEPE (Assembléia Legislativa de Pernambuco) foram escolhidos para o primeiro trabalho do Cidadão Fiscal pro permitirem uma análise direta da população sobre como seus eleitos mais próximos estão utilizando o dinheiro público.</p>
+	</div>
+  </div>
+  </div>
 </div>
 <!-- /.row -->
 
 <hr>
 
-<!-- Call to Action Section -->
-<div class="row mb-4">
-  <div class="col-md-8">
-    <p>Todo o projeto foi desenvolvido por cidadãos como você, usando um pouco do tempo tão concorrido de nossos dias. Junte-se a nós como voluntário e ajude a fazer ainda mais!</p>
-  </div>
-  <div class="col-md-4">
-    <a class="btn btn-lg btn-secondary btn-block" href="#" routerLink="/about">Seja um Volutário</a>
-  </div>
-</div>
-
-</div>

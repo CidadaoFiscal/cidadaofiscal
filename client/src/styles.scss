@@ -7,14 +7,290 @@
 .ngx-datatable.bootstrap .datatable-footer {
   background: #fff;
   color: #999;
-  margin-top: -1px; }
-
+  margin-top: -1px;
+ }
+.navbar-expand-lg{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 1111;
+}
 body {
-    padding-top: 54px;
-  }
-  
+    padding-top: 0 !important;
+}
+.carousel{
+	height: 415px;
+
+}
+.navbar{
+	box-shadow:none;
+}
+.navbar-expand-lg .navbar-collapse{
+	justify-content:space-between;
+    border-bottom: solid 1px #c4c4c4;
+	align-self: flex-start;
+}
+.carousel-caption {
+    bottom: 0;
+	padding-bottom:0px;
+    color: #f00;
+}
+.carousel-caption .col{
+ justify-content: center;
+ align-items: center;
+ display: flex;
+ flex-direction:column;
+}
+.carousel-caption .col h3{
+	color:#235982;
+	font-size: 37px;
+}
+.carousel-caption .col h3 span{
+	color:#e27643;
+}
+.carousel-caption .col p{
+	font-size:20px;
+	color:#404040;
+}
+.carousel-caption .col h3,
+.carousel-caption .col p{
+	width:100%;
+}
+.carousel-inner,
+.carousel-item{
+    height: 100%;
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+	color:#696969;
+}
+.navbar-expand-lg .navbar-nav .nav-link i{
+	font-size:25px;
+	color:#235982;
+}
+.navbar-expand-lg .navbar-nav .nav-link.link-bg{
+    padding: 5px 15px;
+    margin-top: 12px;
+	border-radius:4px;
+	box-shadow: 0px 2px 3px rgba(0,0,0, 0.2);
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e7e7e7+100 */
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #e7e7e7 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#e7e7e7 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #ffffff 0%,#e7e7e7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e7e7e7',GradientType=0 ); /* IE6-9 */
+}
+.navbar-expand-lg .navbar-nav li.active .nav-link{
+	color:#ff7e2d;
+}
+.card{
+	box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+	border-radius: 0;
+}
+.card-title {
+    margin-bottom: 0.75rem;
+    height: 60px;
+    margin: -20px -20px 20px -20px;
+    /* line-height: 43px; */
+    background: #13507c;
+    color: #fff;
+	padding: 5px;
+}
+.card-title img{
+    float: left;
+    margin: 4px 10px 0px 7px;
+    height: 40px;
+}
+.card-title div{
+	float:left;
+}
+.card-title span{
+	display:block;
+	font-size:15px;
+}
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row.datatable-row-even {
+    background-color: #faf9fc;
+}
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row,
+.ngx-datatable.bootstrap .datatable-header .datatable-header-cell{
+	border:none;
+}
+.container-sobre{
+	marign-top:30px;
+}
+.container-sobre  h2{
+	display:block;
+	margin-top:30px;
+	color:#235982;
+	font-size: 37px;
+}
+.container-sobre h2 span{
+	color:#e27643;
+}
+.container-sobre p,
+.container-sobre li{
+	font-size:20px;
+	color:#404040;
+}
+.container-sobre ul{
+    margin: 35px 0px;
+    padding: 0px 0px 0px 16px;
+
+}
+.container-sobre img{
+	height:506px;
+}
+.container-sobre li{
+	border-left: solid 3px #20b0f7;
+    list-style: none;
+    margin-bottom: 22px;
+    padding: 10px 0px 10px 14px;
+}
+.container-sobre li:first-child{
+	border-color:#f1af21;
+}
+.container-sobre li:last-child{
+	border-color:#31b59e;
+}
+.container-sobre .btn{
+	color:#fff;
+    padding: 20px 0px;
+    font-size: 23px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2970a0+0,3285be+100 */
+	background: #2970a0; /* Old browsers */
+	background: -moz-linear-gradient(left, #2970a0 0%, #3285be 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #2970a0 0%,#3285be 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #2970a0 0%,#3285be 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2970a0', endColorstr='#3285be',GradientType=1 ); /* IE6-9 */
+}
+footer.bg-dark{
+	background:#e5934f !important;
+}
+.top-interna{
+	position:relative;
+	display:block;
+	height:240px;
+	background:url('assets/img/bg-slide.png') no-repeat bottom;
+}
+.top-interna .title-page{
+	position:absolute;
+	line-height: 0px;
+	color:#fff;
+	width:100%;
+	bottom:0px;
+	height:60px;
+	background:#235982;
+}
+.top-interna .title-page h4{
+	margin-top:10px;
+}
+.search-button-toggle{
+	display:inline-block;
+	position:relative;
+	color:#fff;
+	padding: 5px 15px;
+	margin-bottom:30px;
+	background:#235982;
+}
+.search-button-toggle:hover{
+    color: #ffc278;
+}
+.search-button-toggle:before{
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 0px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-right: 36px solid #235982;
+    position: absolute;
+    left: -36px;
+    top: 0px;
+}
+.search-button-toggle:after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 0px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 36px solid #235982;
+    position: absolute;
+    right: -36px;
+    top: 0px;
+}
+.search-button-toggle img,
+.search-button-toggle h4{
+	float:left;
+	margin:5px 5px; 
+}
+.form-control{
+    border: solid 1px #cfdadd;
+    height: 42px !important;
+    padding: 0px 10px;
+    border-radius: 60px;
+}
+.form-control:focus{
+	border-color:#5dd5bd !important;
+	box-shadow:0px 0px 20px #5dd5bd !important;
+}
+.btn-primary{
+    background-color: #235982;
+}
+.ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled).active a, .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled):hover a {
+    background-color: #13507c;
+    font-weight: bold;
+}
+.container-contato ul{
+	float:left;
+	margin:-100px 0px 0px 0px;
+	padding:0px;
+}
+.container-contato ul li{
+	float:left;
+	margin-right:10px;
+	font-size:30px;
+	list-style:none;
+}
   @media (min-width: 992px) {
     body {
       padding-top: 58px;
     }
+  }
+  @media (max-width: 700px) {
+	 .container-contato img{
+		 width:100%;
+	 }
+    .carousel .col-img{
+		display:none !important
+	}
+	.navbar-brand img{
+		height: 53px;
+	}
+	.carousel-caption .col h3{
+		    font-size: 24px;
+	}
+	.carousel-caption .col p{
+		font-size: 15px;
+	}
+	.carousel {
+		height: 275px;
+	}
+	.navbar-expand-lg .navbar-collapse{
+		background: #eaeaea;
+		padding: 14px;
+	}
+	.navbar-expand-lg .navbar-collapse li{
+		border-bottom: solid 1px #b2b2b2;
+	}
+	.navbar-expand-lg .navbar-collapse li:last-child{border:none}
+	.card-title span{
+		font-size:9px;
+	}
+	.container-sobre img {
+		height: 277px;
+	}
+	.container-sobre .btn{
+		font-size: 15px;
+	}
+	.container-sobre h2{
+		font-size: 32px;
+	}
   }
