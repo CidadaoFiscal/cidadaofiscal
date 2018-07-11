@@ -1,7 +1,7 @@
 import { SummaryExpensesYearService } from './../summary-expenses-year.service';
 import { SummarySupplierService } from './../summary-supplier.service';
 import { SummaryMemberService } from './../summary-member.service';
-import { Component, OnInit, group } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
