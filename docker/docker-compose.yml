@@ -25,7 +25,7 @@ services:
   www:
     build: 
       context: .
-      dockerfile: /etc/docker/dockerfile_php_7
+      dockerfile: ./etc/docker/dockerfile_php_7
     volumes:
       - ../dist:/var/www/html/cidadaofiscal
       - ./etc/php:/usr/local/etc/php
