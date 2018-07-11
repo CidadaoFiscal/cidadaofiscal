@@ -223,10 +223,14 @@ footer.bg-dark{
 }
 .form-control{
     border: solid 1px #cfdadd;
-    height: 42px !important;
-    padding: 0px 10px;
-    border-radius: 60px;
+	padding: 0px 10px;
+	height: 42px !important;
+    border-radius: 0.2em;
 }
+.textarea-height { 
+	height: auto !important;
+}
+
 .form-control:focus{
 	border-color:#5dd5bd !important;
 	box-shadow:0px 0px 20px #5dd5bd !important;

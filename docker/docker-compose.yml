@@ -27,7 +27,7 @@ services:
       context: .
       dockerfile: ./etc/docker/dockerfile_php_7
     volumes:
-      - ../dist:/var/www/html/cidadaofiscal
+      - ../dist:/var/www/html
       - ./etc/php:/usr/local/etc/php
       - ./etc/apache2/apache2.conf:/etc/apache2/conf-enabled/apache2.conf
       - ./etc/apache2/hosts.conf:/etc/apache2/sites-enabled/hosts.conf

@@ -6,7 +6,7 @@ export class ConfigService {
   constructor() { }
 
   getBaseUrl(): string {
-    return 'http://localhost:38080/cidadaofiscal';
+    return 'http://localhost:38080';
   }
 
 }

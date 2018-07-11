@@ -35,7 +35,7 @@ cursor.execute("CREATE INDEX IF NOT EXISTS cf_alepe_idx_despesa_canceleada ON cf
 cursor.execute("CREATE INDEX IF NOT EXISTS cf_alepe_idx_fornecedor_id ON cf_alepe (fornecedor_id)")
 cursor.execute("CREATE INDEX IF NOT EXISTS cf_alepe_idx_fornecedor_nome ON cf_alepe (fornecedor_nome)")
 
-with open('cf_alepe_data.csv', 'rb') as csvfile:
+with open('cf_alepe_data.csv', 'rt') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
     isDataRow = False
     for row in spamreader:
