@@ -26,44 +26,46 @@ $conditionItems .= isset($_GET["expenseValueTo"]) ? " AND despesa_valor <= " . $
 $conditionItems .= isset($_GET["expenseCanceled"]) ? " AND despesa_cancelada = " . $_GET["expenseCanceled"] : "";
 
 
-$query = "SELECT 
-        plain_data.parlamentar_fantasia AS memberPoliticalName,
-        plain_data.parlamentar_nome AS memberName,
-        plain_data.parlamentar_partido AS memberParty,
-        month_avg.despesa_media_mes AS monthAverageExpenses,
-        SUM(plain_data.despesa_valor) AS monthSumExpenses
+$query = "
+SELECT 
+    plain_data.parlamentar_fantasia AS memberPoliticalName,
+    plain_data.parlamentar_nome AS memberName,
+    plain_data.parlamentar_partido AS memberParty,
+    periodo_qtd AS periodCount,
+    SUM(plain_data.despesa_valor) AS monthSumExpenses
+FROM
+    cidadaofiscal.cf_alepe AS plain_data,
+	(SELECT 
+        parlamentar_fantasia,
+        
+        COUNT(DISTINCT periodo) as periodo_qtd,
+        SUM(despesa_soma_mes) AS despesa_media_mes
     FROM
-        cidadaofiscal.cf_alepe AS plain_data
-    JOIN (
-        SELECT 
+        (SELECT 
             parlamentar_fantasia,
-            AVG(despesa_soma_mes) AS despesa_media_mes
+            concat(ordem_ano, ordem_mes,parlamentar_fantasia) AS periodo,
+            SUM(despesa_valor) AS despesa_soma_mes
         FROM
-            (SELECT 
-                parlamentar_fantasia,
-                SUM(despesa_valor) AS despesa_soma_mes
-            FROM
-                cidadaofiscal.cf_alepe";
+            cidadaofiscal.cf_alepe
+            GROUP BY
+            parlamentar_fantasia,
+            periodo) AS month_sum    	
+    GROUP
+        BY parlamentar_fantasia
+	) AS month_avg
+WHERE
+	month_avg.parlamentar_fantasia = plain_data.parlamentar_fantasia";
 
 if (strlen($conditionItems)>0) {
-    $query .= " WHERE " . substr($conditionItems, 5);
+    $query .= $conditionItems;
 }
 
-$query .= " GROUP BY
-                parlamentar_fantasia,
-                ordem_ano,
-                ordem_mes) AS month_sum
-        GROUP
-            BY parlamentar_fantasia
-    ) AS month_avg 
-    ON month_avg.parlamentar_fantasia = plain_data.parlamentar_fantasia
-    GROUP BY
-        memberPoliticalName,
-        memberParty
-    ORDER BY
-        monthSumExpenses DESC
-    LIMIT
-        0,100";
+$query .= " 
+GROUP BY
+    memberPoliticalName,
+    memberParty
+ORDER BY
+    monthSumExpenses DESC";
 
 $stmt = $db->prepare($query);
 $stmt->execute();
@@ -82,7 +84,7 @@ if($num>0){
             "memberPoliticalName" => $memberPoliticalName,
             "memberName" => $memberName,
             "memberParty" => $memberParty,
-            "monthAverageExpenses" => $monthAverageExpenses,
+            "periodCount" => $periodCount,
             "monthSumExpenses" => $monthSumExpenses
         );
  

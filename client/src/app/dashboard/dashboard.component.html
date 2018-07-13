@@ -74,10 +74,10 @@
             </thead>
             <tbody>
               <tr *ngFor="let row of summaryMemberRows; odd as odd" [ngClass]="{'row-odd' : odd}">
-                <td class="col-md-3 col-sm-3 align-left"><span [ngbTooltip]="row.memberName" container="body">{{row.memberPoliticalName}} ({{row.memberParty}})</span></td>
-                <td class="col-md-3">{{row.monthAverageExpenses | currency:"R$"}}</td>
+                <td class="col-md-4 col-sm-4 align-left"><span [ngbTooltip]="row.memberName" container="body">{{row.memberPoliticalName}} ({{row.memberParty}})</span></td>
+                <td class="col-md-3">{{row.monthSumExpenses/row.periodCount | currency:"R$"}}</td>
                 <td class="col-md-3"><span class="content-attention">{{row.monthSumExpenses | currency:"R$"}}</span></td>
-                <td class="col-md-3">{{row.monthSumExpenses/525300 | percent}}</td>
+                <td class="col-md-2">{{row.monthSumExpenses/(row.periodCount*15450) | percent}}</td>
               </tr>
             </tbody>
           </table>
@@ -91,10 +91,10 @@
               <th>Média de Uso</th>
             </tr>
             <tr>
-              <td class="col-md-3 col-sm-3">{{summaryMemberCount}}</td>
+              <td class="col-md-4 col-sm-4">{{summaryMemberCount}}</td>
               <td class="col-md-3">{{summaryMemberGeneralAvg | currency:"R$"}}</td>
               <td class="col-md-3"><span class="content-severe">{{summaryMemberGeneralSum | currency:"R$"}}</span></td>
-              <td class="col-md-3">{{summaryMemberGeneralAvg | currency:"R$"}}</td>
+              <td class="col-md-2">{{summaryMemberUsageAvg | percent}}</td>
             </tr>
           </tfoot>
         </table>
@@ -130,6 +130,20 @@
               </tbody>
             </table>
           </div>
+          <table class="cf-data-table">
+            <tfoot>
+              <tr>
+                <th>Quantidade</th>
+                <th></th>
+                <th>Total</th>>
+              </tr>
+              <tr>
+                <td class="col-md-6 col-sm-6">{{summarySupplierCount}}</td>
+                <td class="col-md-2"></td>
+                <td class="col-md-4"><span class="content-severe">{{summarySupplierSum | currency:"R$"}}</span></td>
+              </tr>
+            </tfoot>
+          </table>
       </div>
     </div>
   </div>

@@ -18,9 +18,12 @@ export class DashboardComponent implements OnInit {
   summaryMemberCount = 0;
   summaryMemberGeneralAvg = 0;
   summaryMemberGeneralSum = 0;
+  summaryMemberUsageAvg = 0;
 
   summarySupplierRows = [];
-  summarySupplierStats = {};
+  summarySupplierCount = 0;
+  summarySupplierMemberAvg = 0;
+  summarySupplierSum = 0;
 
   summaryExpesesYearRows = [];
   summaryExpesesYearStats = {};
@@ -47,15 +50,27 @@ export class DashboardComponent implements OnInit {
     this.summaryMemberService.getSummaryMember().subscribe(res => {
       this.summaryMemberRows = res.data;
       this.summaryMemberCount = this.summaryMemberRows.length;
-      this.summaryMemberGeneralAvg = (this.summaryMemberRows.reduce((a, b) =>
-        a + Number(b.monthAverageExpenses), 0)) / this.summaryMemberCount;
       this.summaryMemberGeneralSum = (this.summaryMemberRows.reduce((a, b) =>
       a + Number(b.monthSumExpenses), 0));
+
+      const totalPeriodCount = this.summaryMemberRows.reduce((a, b) => a + Number(b.periodCount), 0);
+
+      this.summaryMemberGeneralAvg = this.summaryMemberGeneralSum / totalPeriodCount;
+        this.summaryMemberUsageAvg = this.summaryMemberGeneralSum / (totalPeriodCount * 15450);
     });
   }
 
   loadSupplierSummary(): void {
-    this.summarySupplierService.getSummarySupplier().subscribe(res => this.summarySupplierRows = res.data);
+    this.summarySupplierService.getSummarySupplier().subscribe(res => {
+
+      this.summarySupplierRows = res.data;
+
+      this.summarySupplierCount = this.summarySupplierRows.length;
+      this.summarySupplierMemberAvg = (this.summaryMemberRows.reduce((a, b) =>
+      a + Number(b.memberCount), 0)) / this.summarySupplierCount;
+
+      this.summarySupplierSum = this.summarySupplierRows.reduce((a, b) => a + Number(b.sumExpenses), 0);
+    });
   }
 
   loadYearExpensesSummary(): void {
