@@ -51,7 +51,7 @@
 <div class="container">
 <!-- Summary Section -->
 <div class="row">
-  <div class="col-lg-6 col-md-12 col-sm-12 summary-item">
+  <div class="col-lg-7 col-md-12 col-sm-12 summary-item">
     <div class="card h-100">
       <div class="card-body">
         <h4 class="card-title">
@@ -69,13 +69,15 @@
                 <th>Deputado(a)</th>
                 <th>Média Mensal</th>
                 <th>Total Acumulado</th>
+                <th>Uso de Verba</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let row of summaryMemberRows; odd as odd" [ngClass]="{'row-odd' : odd}">
-                <td class="col-md-3 col-sm-3 align-left"><span [ngbTooltip]="row.memberName" container="body">{{row.memberPoliticalName}}</span></td>
+                <td class="col-md-3 col-sm-3 align-left"><span [ngbTooltip]="row.memberName" container="body">{{row.memberPoliticalName}} ({{row.memberParty}})</span></td>
                 <td class="col-md-3">{{row.monthAverageExpenses | currency:"R$"}}</td>
                 <td class="col-md-3"><span class="content-attention">{{row.monthSumExpenses | currency:"R$"}}</span></td>
+                <td class="col-md-3">{{row.monthSumExpenses/525300 | percent}}</td>
               </tr>
             </tbody>
           </table>
@@ -86,18 +88,20 @@
               <th>Total</th>
               <th>Média Geral</th>
               <th>Total Geral</th>
+              <th>Média de Uso</th>
             </tr>
             <tr>
               <td class="col-md-3 col-sm-3">{{summaryMemberCount}}</td>
               <td class="col-md-3">{{summaryMemberGeneralAvg | currency:"R$"}}</td>
               <td class="col-md-3"><span class="content-severe">{{summaryMemberGeneralSum | currency:"R$"}}</span></td>
+              <td class="col-md-3">{{summaryMemberGeneralAvg | currency:"R$"}}</td>
             </tr>
           </tfoot>
         </table>
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-md-12 col-sm-12 summary-item">
+  <div class="col-lg-5 col-md-12 col-sm-12 summary-item">
     <div class="card h-100">
       <div class="card-body">
         <h4 class="card-title">
