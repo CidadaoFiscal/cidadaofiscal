@@ -15,8 +15,16 @@ import { map } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
   summaryMemberRows = [];
+  summaryMemberCount = 0;
+  summaryMemberGeneralAvg = 0;
+  summaryMemberGeneralSum = 0;
+
   summarySupplierRows = [];
+  summarySupplierStats = {};
+
   summaryExpesesYearRows = [];
+  summaryExpesesYearStats = {};
+
   constructor(
     config: NgbCarouselConfig,
     private _http: HttpClient,
@@ -36,7 +44,14 @@ export class DashboardComponent implements OnInit {
   }
 
   loadMemberSummary(): void {
-    this.summaryMemberService.getSummaryMember().subscribe(res => this.summaryMemberRows = res.data);
+    this.summaryMemberService.getSummaryMember().subscribe(res => {
+      this.summaryMemberRows = res.data;
+      this.summaryMemberCount = this.summaryMemberRows.length;
+      this.summaryMemberGeneralAvg = (this.summaryMemberRows.reduce((a, b) =>
+        a + Number(b.monthAverageExpenses), 0)) / this.summaryMemberCount;
+      this.summaryMemberGeneralSum = (this.summaryMemberRows.reduce((a, b) =>
+      a + Number(b.monthSumExpenses), 0));
+    });
   }
 
   loadSupplierSummary(): void {

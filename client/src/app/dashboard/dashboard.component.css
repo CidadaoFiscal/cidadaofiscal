@@ -17,4 +17,19 @@
     margin-top: 30px;
     margin-bottom: 30px;
     min-height: 350px;
+    width: 100% !important;
+}
+
+.card-body {
+    width:100%;
+}
+
+.small-table-container {
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+}
+
+.small-table-container > .datable-body-cell {
+    margin: 0px;
 }

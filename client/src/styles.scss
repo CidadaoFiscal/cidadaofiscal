@@ -259,6 +259,64 @@ footer {
 	margin-top: 20px;
 }
 
+table.cf-data-table {
+	width: 100%;
+}
+
+table.cf-data-table > thead > tr > th {
+	padding: 5px;
+	text-align: center;
+}
+
+table.cf-data-table > tbody > tr > td {
+	padding: 5px;
+	text-align: center;
+}
+
+
+table.cf-data-table > tbody > tr > .align-left {
+	text-align: left;
+}
+
+.row-odd {
+	background-color: #f6f5fa;
+}
+
+table.cf-data-table > tbody > tr:hover {
+	background-color: #fcf7cf !important;	
+	cursor: default;
+}
+
+table.cf-data-table > tfoot > tr > th {
+	padding-top: 10px;
+	color: red;
+	text-align: center;
+	font-weight: normal;
+}
+
+table.cf-data-table > tfoot > tr > td {
+	padding: 0px;
+	color: rgb(94, 94, 94);
+	text-align: center;
+	font-weight: normal;
+}
+
+.content-attention {
+	background-color: #f1af21;
+	border-radius: 10px;
+	color: #fff;
+	padding: 0px 5px;
+}
+
+
+.content-severe {
+	background-color: #f12121;
+	border-radius: 10px;
+	color: #fff;
+	font-weight: bold;
+	padding: 0px 5px;
+}
+
   @media (min-width: 992px) {
     body {
       padding-top: 58px;

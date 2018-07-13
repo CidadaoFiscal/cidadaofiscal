@@ -55,36 +55,45 @@
     <div class="card h-100">
       <div class="card-body">
         <h4 class="card-title">
-		  <img src="./assets/img/icon1.png" />
-		  <div>
-			  Deputados
-			  <span>Quais são os deputados que mais gastam?</span>
-		  </div>
+          <img src="./assets/img/icon1.png" />
+          <div>
+            Deputados
+            <span>Quais são os deputados que mais gastam?</span>
+          </div>
         </h4>
-        <ngx-datatable class="bootstrap"
-        [rows]="summaryMemberRows"
-        [columnMode]="'flex'"
-        [headerHeight]="40"
-        [footerHeight]="40"
-        [limit]="5"
-        [rowHeight]="'46'"
-        [messages]="{emptyMessage:'Sem dados para exibir',totalMessage:'(total)'}">
-          <ngx-datatable-column prop="memberPoliticalName" name="Deputado(a)" [flexGrow]="3">
-            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span [ngbTooltip]="row.memberName" container="body">{{value}}</span>
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column prop="monthAverageExpenses" name="Média Mensal" [flexGrow]="2">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value | currency:"R$"}}
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column prop="monthSumExpenses" name="Total" [flexGrow]="2">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value | currency:"R$"}}
-            </ng-template>
-          </ngx-datatable-column>
-        </ngx-datatable>
+        
+        <div class="small-table-container">
+          <table class="cf-data-table">
+            <thead>
+              <tr>
+                <th>Deputado(a)</th>
+                <th>Média Mensal</th>
+                <th>Total Acumulado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of summaryMemberRows; odd as odd" [ngClass]="{'row-odd' : odd}">
+                <td class="col-md-3 col-sm-3 align-left"><span [ngbTooltip]="row.memberName" container="body">{{row.memberPoliticalName}}</span></td>
+                <td class="col-md-3">{{row.monthAverageExpenses | currency:"R$"}}</td>
+                <td class="col-md-3"><span class="content-attention">{{row.monthSumExpenses | currency:"R$"}}</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <table class="cf-data-table">
+          <tfoot>
+            <tr>
+              <th>Total</th>
+              <th>Média Geral</th>
+              <th>Total Geral</th>
+            </tr>
+            <tr>
+              <td class="col-md-3 col-sm-3">{{summaryMemberCount}}</td>
+              <td class="col-md-3">{{summaryMemberGeneralAvg | currency:"R$"}}</td>
+              <td class="col-md-3"><span class="content-severe">{{summaryMemberGeneralSum | currency:"R$"}}</span></td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
     </div>
   </div>
@@ -98,30 +107,25 @@
 			   <span>Quais são as empresas que mais recebem?</span>
 		   </div>
         </h4>
-        <ngx-datatable class="bootstrap"
-          [rows]="summarySupplierRows"
-          [columnMode]="'flex'"
-          [headerHeight]="40"
-          [footerHeight]="40"
-          [limit]="5"
-          [rowHeight]="'46'"
-          [messages]="{emptyMessage:'Sem dados para exibir',totalMessage:'(total)'}">
-          <ngx-datatable-column prop="supplierName" name="Fornecedor" [flexGrow]="2">
-              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                  <span [ngbTooltip]="row.supplierId" container="body">{{value}}</span>
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column prop="sumExpenses" name="Total Recebido" [flexGrow]="1">
-              <ng-template let-value="value" ngx-datatable-cell-template>
-                  {{value | currency:"R$"}}
-              </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column prop="memberCount" name="Qtd. Deputados" [flexGrow]="1">
-              <ng-template let-value="value" ngx-datatable-cell-template>
-                  {{value}}
-              </ng-template>
-            </ngx-datatable-column>
-        </ngx-datatable>
+        
+        <div class="small-table-container">
+            <table class="cf-data-table">
+              <thead>
+                <tr>
+                  <th>Fornecedor</th>
+                  <th><span [ngbTooltip]="'Quantidade de Deputados'" container="body">Qtd. Dep.</span></th>
+                  <th>Total Recebido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let row of summarySupplierRows; odd as odd" [ngClass]="{'row-odd' : odd}">
+                  <td class="col-md-6 col-sm-5 align-left"><span [ngbTooltip]="row.supplierId" container="body">{{row.supplierName}}</span></td>
+                  <td class="col-md-2">{{row.memberCount}}</td>
+                  <td class="col-md-4"><span class="content-attention">{{row.sumExpenses | currency:"R$"}}</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
       </div>
     </div>
   </div>

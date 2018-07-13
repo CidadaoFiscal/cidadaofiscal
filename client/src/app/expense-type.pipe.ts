@@ -6,29 +6,23 @@ export class ExpenseTypePipe implements PipeTransform {
         const typeNumber = ('' + value).trim();
         switch (typeNumber) {
             case '1':
-                return 'Locação de Imóveis';
+                return 'Aluguel de Veículo, Passagem, Hospedagem';
             case '2':
-                return 'Hospedagens, Passagens e Locação de Transportes';
+                return 'Consultoria Jurídica, Assessoria Técnica';
             case '3':
-                return 'Consultoria, Assessoria e Pesquisa de Trabalhos Técnicos';
+                return 'Material de expediente, Copias, Encadernação';
             case '4':
                 return 'Divulgação de Atividade Parlamentar';
             case '5':
-                return 'Material de Expediente';
+                return 'Serviços de internet, Website, Softwares';
             case '6':
-                return 'Aquis./Loc. de Software; TV a Cabo; Internet; Manut. de Site';
+                return 'Serviços Gráficos, Edição de Revistas e Jornais';
             case '7':
-                return 'Serviços Postais';
+                return 'Locação de Imóveis';
             case '8':
-                return 'Peças, Acessórios e Serviços para Veículos';
+                return 'Manutenção de veículos';
             case '9':
-                return 'Cópias Heliográficas e Encadernações em Geral';
-            case '10':
-                return 'Serviços Gráficos (Edição de Jornais, Revistas, etc.)';
-            case '11':
-                return 'Assinaturas de Jornais, Revistas, etc.';
-            case '12':
-                return 'Serviços de Telecomunicações em Geral';
+                return 'Serviço Postal, Telefonia, Assinatura Jornal';
             default:
                 return typeNumber;
         }
