@@ -11,6 +11,6 @@ gulp.task('api-dist-copy', function() {
   .pipe(gulp.dest('dist/api'))
 });
 
-gulp.task('default', function() {
+gulp.task('default', ['api-dist-copy', 'client-dist-copy'], function() {
     
 });

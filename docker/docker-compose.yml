@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  vsub6:
+  cf_network:
     driver: bridge
     ipam:
      config:
@@ -9,6 +9,7 @@ networks:
 
 services:
   db:
+    container_name: cf_db
     image: mariadb:10.1
     ports:
       - "38306:3306"
@@ -20,9 +21,10 @@ services:
     volumes: 
       - ./etc/mysql:/docker-entrypoint-initdb.d
     networks:
-      vsub6:
+      cf_network:
         ipv4_address: 10.6.0.5
   www:
+    container_name: cf_www
     build: 
       context: .
       dockerfile: ./etc/docker/dockerfile_php_7
@@ -36,6 +38,6 @@ services:
     links:
       - db
     networks:
-      vsub6:
+      cf_network:
         ipv4_address: 10.6.0.6
 
