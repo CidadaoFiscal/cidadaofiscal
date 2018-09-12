@@ -21,7 +21,7 @@ if (strlen($type) > 0) {
     SUM(plain_data.despesa_valor) AS sumExpenses,
     COUNT(DISTINCT plain_data.parlamentar_fantasia) AS memberCount
 FROM
-    cidadaofiscal.cf_alepe AS plain_data
+    cf_alepe AS plain_data
 WHERE
     plain_data.despesa_tipo = " . $type . " AND 
     plain_data.despesa_cancelada = 0
@@ -59,7 +59,11 @@ LIMIT
      
     else{
         echo json_encode(
-            array("message" => "No results found." . $query)
+            array(
+                "message" => "No results found.",
+                "errorInfo" => $stmt->errorInfo(),
+                "query" => $query
+            )
         );
     }
 } 

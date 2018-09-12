@@ -33,7 +33,7 @@ $query = "SELECT
         SUM(despesa_valor) AS sumExpenses,
         COUNT(DISTINCT parlamentar_nome) AS memberCount
     FROM
-        cidadaofiscal.cf_alepe AS plain_data
+        cf_alepe AS plain_data
         JOIN (
             SELECT 
                 fornecedor_nome,
@@ -43,7 +43,7 @@ $query = "SELECT
                     fornecedor_nome,
                     SUM(despesa_valor) AS despesa_soma_mes
                 FROM
-                    cidadaofiscal.cf_alepe";
+                    cf_alepe";
 
 if (strlen($conditionItems)>0) {
     $query .= " WHERE " . substr($conditionItems, 5);
@@ -92,7 +92,11 @@ if($num>0){
  
 else{
     echo json_encode(
-        array("message" => "No results found.")
+        array(
+            "message" => "No results found.",
+            "errorInfo" => $stmt->errorInfo(),
+            "query" => $query
+        )
     );
 }
 ?>

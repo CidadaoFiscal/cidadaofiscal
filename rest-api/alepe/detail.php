@@ -46,7 +46,7 @@ $offset=isset($_GET["offset"]) ? intval($_GET["offset"]) : 0;
 	despesa_cancelada AS expenseCanceled,
     despesa_data AS expenseDate
 FROM
-    cidadaofiscal.cf_alepe";
+    cf_alepe";
 
 if (strlen($conditionItems)>0) {
     $query .= " WHERE " . substr($conditionItems, 5);
@@ -90,7 +90,11 @@ if($num>0){
     
 else{
     echo json_encode(
-        array("message" => "No results found.")
+        array(
+            "message" => "No results found.",
+            "errorInfo" => $stmt->errorInfo(),
+            "query" => $query
+        )
     );
 }
 

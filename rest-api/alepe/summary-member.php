@@ -34,7 +34,7 @@ SELECT
     periodo_qtd AS periodCount,
     SUM(plain_data.despesa_valor) AS monthSumExpenses
 FROM
-    cidadaofiscal.cf_alepe AS plain_data,
+    cf_alepe AS plain_data,
 	(SELECT 
         parlamentar_fantasia,
         
@@ -46,7 +46,7 @@ FROM
             concat(ordem_ano, ordem_mes,parlamentar_fantasia) AS periodo,
             SUM(despesa_valor) AS despesa_soma_mes
         FROM
-            cidadaofiscal.cf_alepe
+            cf_alepe
             GROUP BY
             parlamentar_fantasia,
             periodo) AS month_sum    	
@@ -96,7 +96,11 @@ if($num>0){
  
 else{
     echo json_encode(
-        array("message" => "No results found.")
+        array(
+            "message" => "No results found.",
+            "errorInfo" => $stmt->errorInfo(),
+            "query" => $query
+        )
     );
 }
 ?>
