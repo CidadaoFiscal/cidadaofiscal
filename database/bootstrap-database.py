@@ -50,7 +50,7 @@ cursor.execute("CREATE INDEX IF NOT EXISTS cf_alepe_idx_fornecedor_nome ON cf_al
 
 print('Loading data...')
 
-with open('basecompleta-clear.csv', 'rt') as csvfile:
+with open('cf_alepe_data.csv', 'rt') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
 
     rowCount = len(list(spamreader))
