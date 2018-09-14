@@ -48,7 +48,13 @@ export class DashboardComponent implements OnInit {
 
   loadMemberSummary(): void {
     this.summaryMemberService.getSummaryMember().subscribe(res => {
-      this.summaryMemberRows = res.data;
+      this.summaryMemberRows = res.data.map(function(row) {
+        row.monthAvgExpenses = row.monthSumExpenses / row.periodCount;
+        return row;
+      });
+
+      this.summaryMemberRows.sort((a, b) => b.monthAvgExpenses - a.monthAvgExpenses);
+
       this.summaryMemberCount = this.summaryMemberRows.length;
       this.summaryMemberGeneralSum = (this.summaryMemberRows.reduce((a, b) =>
       a + Number(b.monthSumExpenses), 0));

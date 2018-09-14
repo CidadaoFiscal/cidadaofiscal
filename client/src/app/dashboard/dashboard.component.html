@@ -10,8 +10,8 @@
 			<img src="./assets/img/slide1.png" />
 		</div>
 		<div class="col">
-			<h3>Alisando os <span>gastos públicos</span></h3>
-			<p>Em seu primeiro projeto, o cidadaofiscal.org mostra a finalidade das verbas indenizatórias da Assembléia Legislativa de Pernambuco.</p>
+			<h3><span>Fiscalize</span> os políticos de Pernambuco</h3>
+			<p>Em seu primeiro projeto, a Cidadão Fiscal detalha os gastos com reembolso de despesas dos deputados estaduais de Pernambuco.</p>
 		</div>
 	</div>
 	</div>
@@ -24,8 +24,8 @@
 			<img src="./assets/img/slide2.png" />
 		</div>
 		<div class="col">
-		      <h3>ALEPE</h3>
-			  <p>Todos os dados utilizados neste projeto estão disponíveis publicamente para consulta.</p>
+		  <h3><span>Tecnologia</span></h3>
+			<p>Usamos Inteligência Artificial e robôs para coletar dados de diversos portais governamentais e apresentar-los de forma didática para o cidadão comum.</p>
 		</div>
 	</div>
     </div>
@@ -38,8 +38,8 @@
 			<img src="./assets/img/slide3.png" />
 		</div>
 		<div class="col">
-			<h3>É Possível</h3>
-			<p>Este é um projeto voluntário feito por pessoas que acreditam que <strong>É POSSÍVEL</strong> mudar o país com uma participação saudável na política.</p>
+			<h3><span>Apoie</span> o projeto</h3>
+			<p>Contamos com a colaboração de voluntários e apoiadores que realizam doações de R$25 por mês. A sua ajuda é fundamental.</p>
 		</div>
 	</div>
       
@@ -75,8 +75,8 @@
             <tbody>
               <tr *ngFor="let row of summaryMemberRows; odd as odd" [ngClass]="{'row-odd' : odd}">
                 <td class="col-md-4 col-sm-4 align-left"><span [ngbTooltip]="row.memberName" container="body">{{row.memberPoliticalName}} ({{row.memberParty}})</span></td>
-                <td class="col-md-3">{{row.monthSumExpenses/row.periodCount | currency:"R$"}}</td>
-                <td class="col-md-3"><span class="content-attention">{{row.monthSumExpenses | currency:"R$"}}</span></td>
+                <td class="col-md-3"><span class="content-attention">{{row.monthAvgExpenses | currency:"R$"}}</span></td>
+                <td class="col-md-3">{{row.monthSumExpenses | currency:"R$"}}</td>
                 <td class="col-md-2">{{row.monthSumExpenses/(row.periodCount*15450) | percent}}</td>
               </tr>
             </tbody>
@@ -107,7 +107,7 @@
         <h4 class="card-title">
 		  <img src="./assets/img/icon2.png" />
 		  <div>
-			  Fornecedores
+			  Top 100 Fornecedores
 			   <span>Quais são as empresas que mais recebem?</span>
 		   </div>
         </h4>
