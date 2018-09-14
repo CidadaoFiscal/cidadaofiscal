@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class ConfigService {
@@ -6,7 +7,7 @@ export class ConfigService {
   constructor() { }
 
   getBaseUrl(): string {
-    return 'http://localhost:38080';
+    return environment.baseUrl;
   }
 
 }
