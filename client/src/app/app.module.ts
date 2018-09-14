@@ -21,6 +21,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ExpenseTypePipe } from './expense-type.pipe';
 import { SummarySupplierService } from './summary-supplier.service';
 import { SummaryExpensesYearService } from './summary-expenses-year.service';
+import { BlogComponent } from './blog/blog.component';
 
 registerLocaleData(localePt);
 
@@ -38,7 +39,8 @@ registerLocaleData(localePt);
     DashboardComponent,
     DetailComponent,
     AboutComponent,
-    ExpenseTypePipe
+    ExpenseTypePipe,
+    BlogComponent
   ],
   providers: [
     ConfigService,
