@@ -1,0 +1,100 @@
+<div class="top-interna">
+    <div class="container">
+    </div>
+    <div class="title-page">
+      <div class="container">
+        <h4>Explore</h4>
+        <span>Formule sua opinião usando os dados.</span>
+      </div>
+    </div>
+  </div>
+
+<div class="container detail-container" style="margin-top:0px;">
+    <div class="card">
+      <div class="card-body" style="padding-top:0px;">
+        <div class="col-md-12 text-center"><a href="javascript:void(0);" class="search-button-toggle"><img src="../assets/img/icon-search.png" /><h4>Filtros</h4></a></div>
+        <div class="row container-search">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="memberPoliticalName">Deputado</label>
+              <input type="text" class="form-control" id="memberPoliticalName" placeholder="Nome Do Deputado" [(ngModel)]="browseParameters.memberPoliticalName">
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Partido</label>
+              <input type="text" class="form-control" id="memberParty" placeholder="Partido"  [(ngModel)]="browseParameters.memberParty">
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+            <button class="btn btn-secondary" (click)="resetParameters()">Limpar</button>
+            <button class="btn btn-primary" (click)="doBrowse()">Pesquisar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card result-card">
+      <div class="card-body">
+        <h4 class="card-title">
+          <div>
+            Tipo 1
+            <span>Total: R$10.000,00</span>
+          </div>
+        </h4>
+
+        <table>
+          <thead>
+            <tr>
+              <td>Fornecedor</td>
+              <td>JAN 2015</td>
+              <td>FEV 2015</td>
+              <td>MAR 2015</td>
+              <td>ABR 2015</td>
+              <td>MAI 2015</td>
+              <td>JUN 2015</td>
+              <td>JUL 2015</td>
+              <td>AGO 2015</td>
+              <td>SET 2015</td>
+              <td>OUT 2015</td>
+              <td>NOV 2015</td>
+              <td>DEZ 2015</td>
+              <td>Total</td>
+              
+              <td>JAN 2016</td>
+              <td>FEV 2016</td>
+              <td>MAR 2016</td>
+              <td>ABR 2016</td>
+              <td>MAI 2016</td>
+              <td>JUN 2016</td>
+              <td>JUL 2016</td>
+              <td>AGO 2016</td>
+              <td>SET 2016</td>
+              <td>OUT 2016</td>
+              <td>NOV 2016</td>
+              <td>DEZ 2016</td>
+              
+              <td>JAN 2017</td>
+              <td>FEV 2017</td>
+              <td>MAR 2017</td>
+              <td>ABR 2017</td>
+              <td>MAI 2017</td>
+              <td>JUN 2017</td>
+              <td>JUL 2017</td>
+              <td>AGO 2017</td>
+              <td>SET 2017</td>
+              <td>OUT 2017</td>
+              <td>NOV 2017</td>
+              <td>DEZ 2017</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>a</td>
+            </tr>
+          </tbody>
+          <tfoot></tfoot>
+        </table>
+      </div>
+    </div>
+</div>

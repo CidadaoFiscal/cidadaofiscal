@@ -8,7 +8,7 @@ import { DetailService } from './detail.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -23,6 +23,7 @@ import { SummarySupplierService } from './summary-supplier.service';
 import { SummaryExpensesYearService } from './summary-expenses-year.service';
 import { BlogComponent } from './blog/blog.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { BrowseComponent } from './browse/browse.component';
 
 registerLocaleData(localePt);
 
@@ -41,7 +42,8 @@ registerLocaleData(localePt);
     DetailComponent,
     AboutComponent,
     ExpenseTypePipe,
-    BlogComponent
+    BlogComponent,
+    BrowseComponent
   ],
   providers: [
     ConfigService,
