@@ -30,6 +30,12 @@
     overflow: auto;
 }
 
+.year-table-container {
+    width: 100%;
+    height: 310px;
+    overflow: auto;
+}
+
 .small-table-container > .datable-body-cell {
     margin: 0px;
 }
