@@ -1,5 +1,5 @@
 .external-content {
-    height: 50vh;
+    min-height: 50vh;
     overflow: hidden;
 }
 
