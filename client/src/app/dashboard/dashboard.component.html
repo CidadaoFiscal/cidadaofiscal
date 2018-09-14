@@ -156,46 +156,32 @@
       <div class="card h-100">
         <div class="card-body">
           <h4 class="card-title">
-		    <img src="./assets/img/icon3.png" />
-			<div>
-				Despesas por Ano
-				<span>Como o seu dinheiro é gasto?</span>
-			</div>
+            <img src="./assets/img/icon3.png" />
+            <div>
+              Despesas por Ano
+              <span>Como o seu dinheiro é gasto?</span>
+            </div>
           </h4>
-          <ngx-datatable class="bootstrap"
-            [rows]="summaryExpesesYearRows"
-            [columnMode]="'flex'"
-            [headerHeight]="40"
-            [footerHeight]="40"
-            [limit]="3"
-            [rowHeight]="'46'"
-            [messages]="{emptyMessage:'Sem dados para exibir',totalMessage:'(total)'}">
-              <ngx-datatable-column prop="expenseType" name="Tipo de Despesa" [flexGrow]="3">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    <span [ngbTooltip]="value | expenseType" container="body">{{value | expenseType}}</span>
-                </ng-template>
-              </ngx-datatable-column>
-              <ngx-datatable-column prop="y2015" name="2015" [flexGrow]="2">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value | currency:"R$"}}
-                </ng-template>
-              </ngx-datatable-column>
-              <ngx-datatable-column prop="y2016" name="2016" [flexGrow]="2">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value | currency:"R$"}}
-                </ng-template>
-              </ngx-datatable-column>
-              <ngx-datatable-column prop="y2017" name="2017" [flexGrow]="2">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value | currency:"R$"}}
-                </ng-template>
-              </ngx-datatable-column>
-              <ngx-datatable-column prop="total" name="Total" [flexGrow]="2">
-                <ng-template let-value="value"  ngx-datatable-cell-template>
-                    {{value | currency:"R$"}}
-                </ng-template>
-              </ngx-datatable-column>
-          </ngx-datatable>
+          <div class="small-table-container">
+            <table class="cf-data-table">
+              <thead>
+                <tr>
+                  <th>Tipo de Despesa</th>
+                  <th>Ano 2015</th>
+                  <th>Ano 2016</th>
+                  <th>Ano 2017</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let row of summaryExpesesYearRows; odd as odd" [ngClass]="{'row-odd' : odd}">
+                  <td class="col-md-6 col-sm-5 align-left"><span [ngbTooltip]="row.supplierId" container="body">{{row.expenseType | expenseType}}</span></td>
+                  <td class="col-md-2">{{row.y2015 | currency:"R$"}}</td>
+                  <td class="col-md-2">{{row.y2016 | currency:"R$"}}</td>
+                  <td class="col-md-2">{{row.y2017 | currency:"R$"}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
