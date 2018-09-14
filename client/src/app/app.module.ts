@@ -22,6 +22,7 @@ import { ExpenseTypePipe } from './expense-type.pipe';
 import { SummarySupplierService } from './summary-supplier.service';
 import { SummaryExpensesYearService } from './summary-expenses-year.service';
 import { BlogComponent } from './blog/blog.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 registerLocaleData(localePt);
 
@@ -48,6 +49,7 @@ registerLocaleData(localePt);
     SummaryMemberService,
     SummarySupplierService,
     SummaryExpensesYearService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
