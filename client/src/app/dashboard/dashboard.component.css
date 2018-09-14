@@ -33,3 +33,16 @@
 .small-table-container > .datable-body-cell {
     margin: 0px;
 }
+
+.explain {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+@media (max-width: 700px) {
+    .carousel-caption .col p {
+        font-size: 1em;
+        margin: 0 0 5em;
+    }
+}
