@@ -61,23 +61,25 @@
             <span>Quais são os deputados que mais gastam?</span>
           </div>
         </h4>
-        
+        <table class="cf-data-table">
+          <thead>
+            <tr>
+              <th style="width:35%">Deputado(a)</th>
+              <th style="width:20%">Média Mensal</th>
+              <th style="width:30%">Total Acumulado</th>
+              <th style="width:15%">% de Uso</th>
+            </tr>
+          </thead>
+        </table>
         <div class="small-table-container">
+          
           <table class="cf-data-table">
-            <thead>
-              <tr>
-                <th>Deputado(a)</th>
-                <th>Média Mensal</th>
-                <th>Total Acumulado</th>
-                <th>Uso de Verba</th>
-              </tr>
-            </thead>
             <tbody>
               <tr *ngFor="let row of summaryMemberRows; odd as odd" [ngClass]="{'row-odd' : odd}">
-                <td class="col-md-4 col-sm-4 align-left"><span [ngbTooltip]="row.memberName" container="body">{{row.memberPoliticalName}} ({{row.memberParty}})</span></td>
-                <td class="col-md-3"><span class="content-attention">{{row.monthAvgExpenses | currency:"R$"}}</span></td>
-                <td class="col-md-3">{{row.monthSumExpenses | currency:"R$"}}</td>
-                <td class="col-md-2">{{row.monthSumExpenses/(row.periodCount*15450) | percent}}</td>
+                <td style="width:35%; text-align: left;"><span [ngbTooltip]="row.memberName" container="body">{{row.memberPoliticalName}} ({{row.memberParty}})</span></td>
+                <td style="width:20%"><span class="content-attention">{{row.monthAvgExpenses | currency:'R$':true:'1.0-0'}}</span></td>
+                <td style="width:30%">{{row.monthSumExpenses | currency:'R$':true:'1.0-0'}}</td>
+                <td style="width:15%">{{row.monthSumExpenses/(row.periodCount*15450) | percent}}</td>
               </tr>
             </tbody>
           </table>
@@ -85,16 +87,16 @@
         <table class="cf-data-table">
           <tfoot>
             <tr>
-              <th>Total</th>
-              <th>Média Geral</th>
-              <th>Total Geral</th>
-              <th>Média de Uso</th>
+              <th style="width:35%">Total</th>
+              <th style="width:20%">Média</th>
+              <th style="width:30%">Total</th>
+              <th style="width:15%">Média</th>
             </tr>
             <tr>
-              <td class="col-md-4 col-sm-4">{{summaryMemberCount}}</td>
-              <td class="col-md-3"><span class="content-severe">{{summaryMemberGeneralAvg | currency:"R$"}}</span></td>
-              <td class="col-md-3">{{summaryMemberGeneralSum | currency:"R$"}}</td>
-              <td class="col-md-2">{{summaryMemberUsageAvg | percent}}</td>
+              <td>{{summaryMemberCount}}</td>
+              <td><span class="content-severe">{{summaryMemberGeneralAvg | currency:'R$':true:'1.0-0'}}</span></td>
+              <td>{{summaryMemberGeneralSum | currency:'R$':true:'1.0-0'}}</td>
+              <td>{{summaryMemberUsageAvg | percent}}</td>
             </tr>
           </tfoot>
         </table>
@@ -111,21 +113,23 @@
 			   <span>Quais são as empresas que mais recebem?</span>
 		   </div>
         </h4>
-        
+        <table class="cf-data-table">
+          <thead>
+            <tr>
+              <th style="width:50%">Fornecedor</th>
+              <th style="width:15%"><span [ngbTooltip]="'Quantidade de Deputados'" container="body">Qt. Dep.</span></th>
+              <th style="width:35%">Total Recebido</th>
+            </tr>
+          </thead>
+        </table>
         <div class="small-table-container">
             <table class="cf-data-table">
-              <thead>
-                <tr>
-                  <th>Fornecedor</th>
-                  <th><span [ngbTooltip]="'Quantidade de Deputados'" container="body">Qtd. Dep.</span></th>
-                  <th>Total Recebido</th>
-                </tr>
-              </thead>
+             
               <tbody>
                 <tr *ngFor="let row of summarySupplierRows; odd as odd" [ngClass]="{'row-odd' : odd}">
-                  <td class="col-md-6 col-sm-5 align-left"><span [ngbTooltip]="row.supplierId" container="body">{{row.supplierName}}</span></td>
-                  <td class="col-md-2">{{row.memberCount}}</td>
-                  <td class="col-md-4"><span class="content-attention">{{row.sumExpenses | currency:"R$"}}</span></td>
+                  <td style="width:50%;text-align: left"><span [ngbTooltip]="row.supplierId" container="body">{{row.supplierName}}</span></td>
+                  <td style="width:15%">{{row.memberCount}}</td>
+                  <td style="width:35%"><span class="content-attention">{{row.sumExpenses | currency:'R$':true:'1.0-0'}}</span></td>
                 </tr>
               </tbody>
             </table>
@@ -133,14 +137,14 @@
           <table class="cf-data-table">
             <tfoot>
               <tr>
-                <th>Quantidade</th>
-                <th></th>
-                <th>Total</th>>
+                <th style="width:50%">Total</th>
+                <th style="width:15%">Média</th>
+                <th style="width:35%">Total</th>
               </tr>
               <tr>
-                <td class="col-md-6 col-sm-6">{{summarySupplierCount}}</td>
-                <td class="col-md-2"></td>
-                <td class="col-md-4"><span class="content-severe">{{summarySupplierSum | currency:"R$"}}</span></td>
+                <td>{{summarySupplierCount}}</td>
+                <td>{{summarySupplierMemberAvg | number:'1.0-0'}}</td>
+                <td><span class="content-severe">{{summarySupplierSum | currency:'R$':true:'1.0-0'}}</span></td>
               </tr>
             </tfoot>
           </table>
@@ -162,26 +166,48 @@
               <span>Como o seu dinheiro é gasto?</span>
             </div>
           </h4>
+          <table class="cf-data-table">
+            <thead>
+              <tr>
+                <th style="width:40%">Tipo de Despesa</th>
+                <th style="width:15%">Ano 2015</th>
+                <th style="width:15%">Ano 2016</th>
+                <th style="width:15%">Ano 2017</th>
+                <th style="width:15%">Total por Tipo</th>
+              </tr>
+            </thead>
+          </table>
           <div class="year-table-container">
             <table class="cf-data-table">
-              <thead>
-                <tr>
-                  <th>Tipo de Despesa</th>
-                  <th>Ano 2015</th>
-                  <th>Ano 2016</th>
-                  <th>Ano 2017</th>
-                </tr>
-              </thead>
               <tbody>
                 <tr *ngFor="let row of summaryExpesesYearRows; odd as odd" [ngClass]="{'row-odd' : odd}">
-                  <td class="col-md-6 col-sm-5 align-left"><span [ngbTooltip]="row.supplierId" container="body">{{row.expenseType | expenseType}}</span></td>
-                  <td class="col-md-2">{{row.y2015 | currency:"R$"}}</td>
-                  <td class="col-md-2">{{row.y2016 | currency:"R$"}}</td>
-                  <td class="col-md-2">{{row.y2017 | currency:"R$"}}</td>
+                  <td style="width:40%; text-align: left;"><span [ngbTooltip]="row.supplierId" container="body">{{row.expenseType | expenseType}}</span></td>
+                  <td style="width:15%">{{row.y2015 | currency:'R$':true:'1.0-0'}}</td>
+                  <td style="width:15%">{{row.y2016 | currency:'R$':true:'1.0-0'}}</td>
+                  <td style="width:15%">{{row.y2017 | currency:'R$':true:'1.0-0'}}</td>
+                  <td style="width:15%"><span class="content-attention">{{row.total | currency:'R$':true:'1.0-0'}}</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <table class="cf-data-table">
+              <tfoot>
+                <tr>
+                  <th style="width:40%">Quantidade</th>
+                  <th style="width:15%">Total</th>
+                  <th style="width:15%">Total</th>
+                  <th style="width:15%">Total</th>
+                  <th style="width:15%">Total</th>
+                </tr>
+                <tr>
+                  <td style="width:40%">{{summaryExpesesYearCount}}</td>
+                  <td style="width:15%">{{summaryExpesesYearSum2015 | currency:'R$':true:'1.0-0'}}</td>
+                  <td style="width:15%">{{summaryExpesesYearSum2016 | currency:'R$':true:'1.0-0'}}</td>
+                  <td style="width:15%">{{summaryExpesesYearSum2017 | currency:'R$':true:'1.0-0'}}</td>
+                  <td style="width:15%"><span class="content-severe">{{summaryExpesesYearSumTotal | currency:'R$':true:'1.0-0'}}</span></td>
+                </tr>
+              </tfoot>
+            </table>
         </div>
       </div>
     </div>

@@ -26,7 +26,11 @@ export class DashboardComponent implements OnInit {
   summarySupplierSum = 0;
 
   summaryExpesesYearRows = [];
-  summaryExpesesYearStats = {};
+  summaryExpesesYearCount = 0;
+  summaryExpesesYearSum2015 = 0;
+  summaryExpesesYearSum2016 = 0;
+  summaryExpesesYearSum2017 = 0;
+  summaryExpesesYearSumTotal = 0;
 
   constructor(
     config: NgbCarouselConfig,
@@ -72,7 +76,7 @@ export class DashboardComponent implements OnInit {
       this.summarySupplierRows = res.data;
 
       this.summarySupplierCount = this.summarySupplierRows.length;
-      this.summarySupplierMemberAvg = (this.summaryMemberRows.reduce((a, b) =>
+      this.summarySupplierMemberAvg = (this.summarySupplierRows.reduce((a, b) =>
       a + Number(b.memberCount), 0)) / this.summarySupplierCount;
 
       this.summarySupplierSum = this.summarySupplierRows.reduce((a, b) => a + Number(b.sumExpenses), 0);
@@ -80,6 +84,16 @@ export class DashboardComponent implements OnInit {
   }
 
   loadYearExpensesSummary(): void {
-    this.summaryExpensesYearService.getSummaryExpensesYear().subscribe(res => this.summaryExpesesYearRows = res.data);
+    this.summaryExpensesYearService.getSummaryExpensesYear().subscribe(res => {
+      this.summaryExpesesYearRows = res.data;
+      this.summaryExpesesYearCount = this.summaryExpesesYearRows.length;
+      this.summaryExpesesYearRows.forEach(row => {
+        this.summaryExpesesYearSum2015 = Number(this.summaryExpesesYearSum2015) + Number(row.y2015);
+        this.summaryExpesesYearSum2016 = Number(this.summaryExpesesYearSum2016) + Number(row.y2016);
+        this.summaryExpesesYearSum2017 = Number(this.summaryExpesesYearSum2017) + Number(row.y2017);
+        this.summaryExpesesYearSumTotal = Number(this.summaryExpesesYearSumTotal) + Number(row.total);
+      });
+    });
+  
   }
 }
