@@ -64,18 +64,19 @@
   </script>
 
 <div class="container detail-container " style="margin-top:0px;">
-    <div class="card">
-        <div class="card-body" style="padding-top:0px;">
-          <div class="row external-content">
-            <iframe 
-              id="blog_frame"
-              src="http://cidadaofiscal.org/blog"
-              frameborder="0"
-              width="100%"
-              marginheight="0"
-              marginwidth="0"
-              scrolling="no"></iframe>
-          </div>
+    <div class="card" *ngFor="let post of posts$ | async">
+      <div class="card-header">
+        <div class="card-title">
+            {{ post.title.rendered }}
+        </div>
+        <div class="card-subtitle">
+            {{ post.date_gmt | date }}
         </div>
       </div>
+      <img [src]="post['_embedded']['wp:featuredmedia'][0]['media_details'].sizes['medium'].source_url">
+      <div class="card-body" style="padding-top:0px;" [innerHTML]=""></div>
+      <div class="card-actions">
+          <a [href]="post.link">Ler mais</a>
+      </div>
+    </div>
 </div>

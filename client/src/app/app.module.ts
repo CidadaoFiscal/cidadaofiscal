@@ -6,6 +6,7 @@ import localePt from '@angular/common/locales/pt';
 
 import { DetailService } from './detail.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule} from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +30,7 @@ registerLocaleData(localePt);
 @NgModule({
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule.forRoot(),
