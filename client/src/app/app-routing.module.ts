@@ -8,7 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/posts', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail', component: DetailComponent },
   { path: 'about', component: AboutComponent },

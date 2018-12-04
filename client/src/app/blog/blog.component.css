@@ -1,5 +1,5 @@
 .external-content {
-    min-height: 50vh;
+    min-height: 1200px;
     overflow: hidden;
 }
 
@@ -11,4 +11,19 @@
 
 hr {
     border: 1px solid #eee;
+}
+
+
+.carousel-image {
+    height: 415px;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+  
+.carousel-caption {
+
 }

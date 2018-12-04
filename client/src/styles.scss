@@ -31,7 +31,6 @@ body {
 	align-self: flex-start;
 }
 .carousel-caption {
-    bottom: 0;
 	padding-bottom:0px;
     color: #f00;
 }
@@ -115,7 +114,7 @@ body {
 	border:none;
 }
 .container-sobre{
-	marign-top:30px;
+	margin-top:30px;
 }
 .container-sobre  h2{
 	display:block;
@@ -171,7 +170,14 @@ footer.bg-dark{
 	height:240px;
 	background:url('assets/img/bg-slide.png') no-repeat bottom;
 }
-.top-interna .title-page{
+
+.top-clear{
+	position:relative;
+	display:block;
+	height: 60px;
+}
+ 
+.title-page{
 	position:absolute;
 	line-height: 0px;
 	color:#fff;
@@ -180,7 +186,8 @@ footer.bg-dark{
 	height:60px;
 	background:#235982;
 }
-.top-interna .title-page h4{
+
+.title-page h4{
 	margin-top:10px;
 }
 .search-button-toggle{
