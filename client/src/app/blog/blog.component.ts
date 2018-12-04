@@ -11,9 +11,11 @@ import { WordpressService } from '../wordpress.service';
 export class BlogComponent implements OnInit {
 
   posts$: Observable<any[]>;
+  previousPosts$: Observable<any[]>;
 
   constructor(private wp: WordpressService) {
     this.posts$ = this.wp.getPosts();
+    this.previousPosts$ = this.wp.getPreviousPosts();
   }
 
   ngOnInit() {

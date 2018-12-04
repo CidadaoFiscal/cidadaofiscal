@@ -29,13 +29,16 @@ hr {
 }
 
 .post {
+    padding-top: 10px;
     width: 100%;
     max-width: 100%;
+    font-size: 1.2em;
 }
 
 .post img, .post .post-body img {
     width: 100%;
     height: auto;
+    margin-bottom: 20px;
 }
 
 .post .post-header {
@@ -47,7 +50,7 @@ hr {
 }
 
 .post .post-header .post-subtitle {
-
+    font-variant: all-small-caps;
 }
 
 .post .post-body {
@@ -55,11 +58,35 @@ hr {
     width: 100%;
 }
 
+.post .post-content .link-more a {
+    color: crimson;
+}
+
+.post .post-content {
+}
 .post .post-actions {
 
 }
 
-.wp-video, .wp-video-shortcode {
-    width: 100%;
-    max-width: 100%;
+.history {
+    padding-top: 15px;
+    font-size: 1.2em;
+}
+
+.history .history-header {
+
+    font-variant: all-small-caps;
+}
+
+.history .history-body ul {
+    margin-block-start: 0px;
+    padding-inline-start: 0px;
+}
+.history .history-body li {
+    list-style: none;
+    border-bottom: solid 1px #ccc;
+}
+
+.history a {
+    color: #333;
 }

@@ -24,6 +24,7 @@ import { SummarySupplierService } from './summary-supplier.service';
 import { SummaryExpensesYearService } from './summary-expenses-year.service';
 import { BlogComponent } from './blog/blog.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 registerLocaleData(localePt);
 
@@ -43,7 +44,8 @@ registerLocaleData(localePt);
     DetailComponent,
     AboutComponent,
     ExpenseTypePipe,
-    BlogComponent
+    BlogComponent,
+    SafeHtmlPipe
   ],
   providers: [
     ConfigService,
