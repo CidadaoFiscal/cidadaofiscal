@@ -27,3 +27,39 @@ hr {
 .carousel-caption {
 
 }
+
+.post {
+    width: 100%;
+    max-width: 100%;
+}
+
+.post img, .post .post-body img {
+    width: 100%;
+    height: auto;
+}
+
+.post .post-header {
+
+}
+
+.post .post-header .post-title {
+    font-size: 1.5em;
+}
+
+.post .post-header .post-subtitle {
+
+}
+
+.post .post-body {
+    padding-top:0px;
+    width: 100%;
+}
+
+.post .post-actions {
+
+}
+
+.wp-video, .wp-video-shortcode {
+    width: 100%;
+    max-width: 100%;
+}

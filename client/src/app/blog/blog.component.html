@@ -3,48 +3,47 @@
     <ng-template ngbSlide>
       <div class="carousel-image" style="background-image: url('./assets/img/bg-slide.png');"></div>
       <div class="carousel-caption">
-    <div class="row -two-col-xs">
-      <div class="col col-img">
-        <img src="./assets/img/slide1.png" />
-      </div>
-      <div class="col">
-        <h3><span>Fiscalize</span> os políticos de Pernambuco</h3>
-        <p>Em seu primeiro projeto, a Cidadão Fiscal detalha os gastos com reembolso de despesas dos deputados estaduais de Pernambuco.</p>
-      </div>
-    </div>
-    </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="carousel-image" style="background-image: url('./assets/img/bg-slide.png');"></div>
-      <div class="carousel-caption">
-    <div class="row -two-col-xs">
-      <div class="col col-img">
-        <img src="./assets/img/slide2.png" />
-      </div>
-      <div class="col">
-        <h3><span>Tecnologia</span></h3>
-        <p>Usamos Inteligência Artificial e robôs para coletar dados de diversos portais governamentais e apresentar-los de forma didática para o cidadão comum.</p>
-      </div>
-    </div>
+        <div class="row -two-col-xs">
+          <div class="col col-img">
+            <img src="./assets/img/slide1.png" />
+          </div>
+          <div class="col">
+            <h3><span>Fiscalize</span> os políticos de Pernambuco</h3>
+            <p>Em seu primeiro projeto, a Cidadão Fiscal detalha os gastos com reembolso de despesas dos deputados estaduais de Pernambuco.</p>
+          </div>
+        </div>
       </div>
     </ng-template>
     <ng-template ngbSlide>
       <div class="carousel-image" style="background-image: url('./assets/img/bg-slide.png');"></div>
       <div class="carousel-caption">
-    <div class="row -two-col-xs">
-      <div class="col col-img">
-        <img src="./assets/img/slide3.png" />
+        <div class="row -two-col-xs">
+          <div class="col col-img">
+            <img src="./assets/img/slide2.png" />
+          </div>
+          <div class="col">
+            <h3><span>Tecnologia</span></h3>
+            <p>Usamos Inteligência Artificial e robôs para coletar dados de diversos portais governamentais e apresentar-los de forma didática para o cidadão comum.</p>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        <h3><span>Apoie</span> o projeto</h3>
-        <p>Contamos com a colaboração de voluntários e apoiadores que realizam doações de R$25 por mês. A sua ajuda é fundamental.</p>
-      </div>
-    </div>
-        
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="carousel-image" style="background-image: url('./assets/img/bg-slide.png');"></div>
+      <div class="carousel-caption">
+        <div class="row -two-col-xs">
+          <div class="col col-img">
+            <img src="./assets/img/slide3.png" />
+          </div>
+          <div class="col">
+            <h3><span>Apoie</span> o projeto</h3>
+            <p>Contamos com a colaboração de voluntários e apoiadores que realizam doações de R$25 por mês. A sua ajuda é fundamental.</p>
+          </div>
+        </div>
       </div>
     </ng-template>
   </div>
-  </ngb-carousel>  
+</ngb-carousel>  
 
 <div class="top-clear">
     <div class="title-page">
@@ -63,20 +62,28 @@
   
   </script>
 
-<div class="container detail-container " style="margin-top:0px;">
-    <div class="card" *ngFor="let post of posts$ | async">
-      <div class="card-header">
-        <div class="card-title">
-            {{ post.title.rendered }}
+<div class="container detail-container card" style="margin-top:0px;">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="post" *ngFor="let post of posts$ | async">
+        <div class="post-header">
+          <div class="post-subtitle">
+              {{ post.date_gmt | date }}
+          </div>
         </div>
-        <div class="card-subtitle">
-            {{ post.date_gmt | date }}
+        <div class="post-body">
+          <a [href]="post.link"><img [src]="post['_embedded']['wp:featuredmedia'][0]['media_details'].sizes['large'].source_url" [alt]="post.title"></a>
+          <div class="post-content">
+            {{extractExcerpt(post.content.rendered) | html}}
+          </div>
         </div>
-      </div>
-      <img [src]="post['_embedded']['wp:featuredmedia'][0]['media_details'].sizes['medium'].source_url">
-      <div class="card-body" style="padding-top:0px;" [innerHTML]=""></div>
-      <div class="card-actions">
-          <a [href]="post.link">Ler mais</a>
+        <div class="post-actions">
+            <a [href]="post.link">Ler mais</a>
+        </div>
       </div>
     </div>
+    <div class="col-md-4">
+      Publicações anteriores
+    </div>
+  </div>
 </div>

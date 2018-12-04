@@ -19,4 +19,8 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
   }
 
+  extractExcerpt(renderedContent) {
+    return renderedContent.split('<!--more-->', 1);
+  }
+
 }
