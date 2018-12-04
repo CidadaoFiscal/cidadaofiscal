@@ -26,7 +26,7 @@ cd client
 yarn install
 yarn add global @angular/cli
 ng config -g cli.packageManager yarn
-ng build
+ng build -prod
 ```
 
 3) Start docker environment

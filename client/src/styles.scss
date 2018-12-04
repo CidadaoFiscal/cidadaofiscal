@@ -324,12 +324,16 @@ table.cf-data-table > tfoot > tr > td {
 	padding: 0px 5px;
 }
 
+.social-label {
+	display: none;
+}
+
   @media (min-width: 992px) {
     body {
       padding-top: 58px;
     }
   }
-  @media (max-width: 700px) {
+  @media (max-width: 992px) {
 	 .container-contato img{
 		 width:100%;
 	 }
@@ -355,11 +359,10 @@ table.cf-data-table > tfoot > tr > td {
 	.navbar-expand-lg .navbar-collapse li{
 		border-bottom: solid 1px #b2b2b2;
 	}
-	.navbar-expand-lg .navbar-collapse li:last-child{border:none}
+
 	.card-title span{
 		font-size:9px;
 	}
-
 
 	.container-sobre img {
 		height: 277px;
@@ -369,5 +372,10 @@ table.cf-data-table > tfoot > tr > td {
 	}
 	.container-sobre h2{
 		font-size: 32px;
+	}
+
+	.social-label {
+		display: inline-block;
+		padding-left: 5px;
 	}
   }
